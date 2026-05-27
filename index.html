@@ -1,0 +1,2790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Studio — Automate. Scale. Grow.</title>
+  <meta name="description" content="AI-powered process automation, trend watching, and mass content creation for service firms, manufacturers, accountants, law practices, and e-commerce brands.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #0d9488;
+      --teal-light: #14b8a6;
+      --teal-dark:  #0f766e;
+      --teal-pale:  #ccfbf1;
+      --navy:       #0f172a;
+      --navy-mid:   #1e3a5f;
+      --text:       #1e293b;
+      --muted:      #64748b;
+      --border:     #e2e8f0;
+      --bg-light:   #f0fdfa;
+      --radius:     16px;
+      --shadow:     0 4px 24px rgba(15,23,42,.08);
+      --shadow-lg:  0 12px 48px rgba(15,23,42,.16);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 92px 0; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-pale); color: var(--teal-dark);
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 6px 14px;
+      border-radius: 100px; margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800; color: var(--navy);
+      line-height: 1.12; margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 620px; line-height: 1.7;
+    }
+
+    .section-head { margin-bottom: 56px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-sub { margin: 0 auto; }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; border-radius: 12px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      border: 2px solid transparent;
+      transition: all .2s ease;
+    }
+    .btn-primary  { background: var(--teal); color: #fff; }
+    .btn-primary:hover  { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,.35); }
+    .btn-outline  { background: transparent; color: var(--teal); border-color: var(--teal); }
+    .btn-outline:hover  { background: var(--teal); color: #fff; transform: translateY(-2px); }
+    .btn-white    { background: #fff; color: var(--teal-dark); }
+    .btn-white:hover    { background: var(--teal-pale); transform: translateY(-2px); }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 68px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+      font-size: 16px; font-weight: 800; color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 14px; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+
+    .lang-toggle {
+      display: flex; background: var(--bg-light);
+      border-radius: 8px; padding: 3px;
+      border: 1px solid var(--border);
+    }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 6px;
+      border: none; background: transparent;
+      font-size: 13px; font-weight: 700;
+      cursor: pointer; color: var(--muted);
+      transition: all .2s;
+    }
+    .lang-btn.active { background: var(--teal); color: #fff; }
+
+    .hamburger {
+      display: none; flex-direction: column;
+      gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--navy); border-radius: 2px;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       HERO — Swiss Pulse
+       Design system: see DESIGN.md
+       Palette  : paper #FAFAF7 · ink #0A0A0A · accent #FF3D2E
+       Type     : Geist (display+body) · Geist Mono (numerals/labels)
+       Motion   : page-load orchestration via GSAP, idle quiet
+       ───────────────────────────────────────────────────────── */
+    #hero {
+      --sp-paper:    #FAFAF7;
+      --sp-ink:      #0A0A0A;
+      --sp-body:     #1F1F1D;
+      --sp-muted:    #6B6B68;
+      --sp-rule:     #E5E4DE;
+      --sp-accent:   #FF3D2E;
+      --sp-accent-ink:#B82215;
+
+      padding-top: 156px; padding-bottom: 128px;
+      background: var(--sp-paper);
+      color: var(--sp-ink);
+      position: relative; overflow: hidden;
+      font-family: 'Geist', -apple-system, system-ui, sans-serif;
+    }
+
+    /* Decorative column hairlines (very subtle, 4% ink) */
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(10,10,10,.045) 1px, transparent 1px);
+      background-size: calc(100% / 12) 100%;
+      pointer-events: none;
+      max-width: 1200px; margin: 0 auto; left: 0; right: 0;
+      mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+    }
+
+    /* Single accent bar — top right */
+    #hero::after {
+      content: ''; position: absolute;
+      top: 96px; right: max(32px, calc((100vw - 1200px) / 2 + 32px));
+      width: 56px; height: 3px;
+      background: var(--sp-accent);
+    }
+
+    .sp-hero-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .sp-hero-copy {
+      max-width: 720px;
+    }
+    .sp-hero-chat-wrap {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 360px;
+    }
+    /* Compact chat variant for hero — about half the standalone size */
+    .sp-chat.sp-chat--compact {
+      width: 100%;
+      max-width: 360px;
+      border: 1px solid var(--sp-rule);
+      padding: 16px 18px;
+      background: var(--sp-paper);
+      position: relative;
+      min-height: 280px;
+    }
+    .sp-chat.sp-chat--compact::before {
+      content: ''; position: absolute;
+      top: -1px; left: -1px; width: 22px; height: 2.5px;
+      background: var(--sp-accent);
+    }
+    .sp-chat.sp-chat--compact .sp-chat-head {
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .sp-chat.sp-chat--compact .sp-chat-kicker { font-size: 9.5px; gap: 8px; }
+    .sp-chat.sp-chat--compact .sp-chat-kicker .sp-ck-dot { width: 5px; height: 5px; }
+    .sp-chat.sp-chat--compact .sp-chat-live { font-size: 9px; gap: 6px; }
+    .sp-chat.sp-chat--compact .sp-chat-live .sp-live-dot { width: 5px; height: 5px; }
+    .sp-chat.sp-chat--compact .sp-chat-feed { gap: 7px; }
+    .sp-chat.sp-chat--compact .sp-msg-meta { font-size: 8.5px; margin-bottom: 3px; gap: 6px; }
+    .sp-chat.sp-chat--compact .sp-msg-meta .sp-meta-mark { width: 4px; height: 4px; }
+    .sp-chat.sp-chat--compact .sp-msg-bubble { font-size: 12px; padding: 8px 11px; line-height: 1.4; }
+    .sp-chat.sp-chat--compact .sp-typing { padding: 9px 12px; gap: 4px; }
+    .sp-chat.sp-chat--compact .sp-typing .sp-dot { width: 4px; height: 4px; }
+    .sp-chat.sp-chat--compact .sp-msg { max-width: 92%; }
+    @media (max-width: 900px) {
+      .sp-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sp-hero-chat-wrap { min-height: 320px; }
+      .sp-chat.sp-chat--compact { max-width: 100%; }
+    }
+    @media (max-width: 560px) {
+      /* Shrink hero headline so longer RU words ("Автоматизируй", "Масштабируй") don't overflow */
+      .sp-hero-title { font-size: clamp(36px, 11vw, 56px) !important; letter-spacing: -.035em !important; }
+      .sp-hero-stats { gap: 20px; }
+      .sp-stat-num { font-size: clamp(28px, 8vw, 40px) !important; }
+    }
+
+    /* Mono kicker */
+    .sp-kicker {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--sp-muted);
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 40px;
+    }
+    .sp-kicker::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--sp-accent);
+      display: inline-block;
+    }
+    .sp-kicker .sp-num {
+      color: var(--sp-ink); font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Display headline */
+    .sp-hero-title {
+      font-family: 'Geist', sans-serif;
+      font-size: clamp(48px, 7.4vw, 104px);
+      font-weight: 700;
+      line-height: .94;
+      letter-spacing: -.045em;
+      color: var(--sp-ink);
+      margin: 0 0 32px;
+    }
+    .sp-hero-title .sp-word {
+      display: inline-block; overflow: hidden; padding-bottom: .08em;
+      vertical-align: top;
+    }
+    .sp-hero-title .sp-word > span {
+      display: inline-block; will-change: transform;
+    }
+    .sp-hero-title .sp-accent {
+      color: var(--sp-accent);
+      position: relative;
+    }
+    /* Hand-drawn-style underline that draws on load */
+    .sp-hero-title .sp-accent .sp-underline {
+      position: absolute; left: 0; bottom: -.04em;
+      width: 100%; height: .12em; pointer-events: none;
+    }
+    .sp-hero-title .sp-accent .sp-underline path {
+      fill: none; stroke: var(--sp-accent); stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .sp-hero-title br { display: block; content: ''; }
+
+    .sp-hero-sub {
+      font-family: 'Geist', sans-serif;
+      font-size: 17px; line-height: 1.6;
+      color: var(--sp-body);
+      max-width: 540px;
+      margin: 0 0 40px;
+    }
+
+    /* Buttons — sharp corners, hairline, no shadow */
+    .sp-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .sp-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      height: 52px; padding: 0 26px;
+      font-family: 'Geist', sans-serif;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: .01em;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 1px solid var(--sp-ink);
+      transition: background .2s ease, color .2s ease;
+      cursor: pointer;
+    }
+    .sp-btn-primary {
+      background: var(--sp-ink); color: var(--sp-paper);
+    }
+    .sp-btn-primary:hover {
+      background: var(--sp-accent); border-color: var(--sp-accent); color: var(--sp-paper);
+    }
+    .sp-btn-ghost {
+      background: transparent; color: var(--sp-ink);
+    }
+    .sp-btn-ghost:hover {
+      background: var(--sp-ink); color: var(--sp-paper);
+    }
+    .sp-btn .sp-arrow { transition: transform .2s ease; }
+    .sp-btn:hover .sp-arrow { transform: translateX(4px); }
+
+    /* Stats — mono numerals, vertical bars */
+    .sp-hero-stats {
+      display: grid; grid-template-columns: repeat(3, auto);
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--sp-rule);
+    }
+    .sp-stat-num {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--sp-ink);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .sp-stat-num .sp-unit {
+      font-size: .55em; color: var(--sp-muted); font-weight: 400;
+    }
+    .sp-stat-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--sp-muted);
+      margin-top: 14px;
+    }
+
+    /* ── Hero visual — schematic workflow mock ── */
+    .sp-hero-visual {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      height: 520px;
+      margin-left: auto;
+    }
+    .sp-mock {
+      position: absolute; inset: 0;
+    }
+    .sp-mock-card {
+      position: absolute;
+      background: var(--sp-paper);
+      border: 1px solid var(--sp-ink);
+      padding: 16px 18px;
+      width: 200px;
+      font-family: 'Geist', sans-serif;
+      z-index: 2;
+    }
+    .sp-mock-card .sp-mc-kicker {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--sp-muted);
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sp-mock-card .sp-mc-kicker::before {
+      content: ''; width: 5px; height: 5px;
+      background: currentColor;
+    }
+    .sp-mock-card .sp-mc-title {
+      font-size: 13px; font-weight: 600; color: var(--sp-ink);
+      margin-bottom: 12px; line-height: 1.3;
+    }
+    .sp-mock-card .sp-mc-rows {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .sp-mock-card .sp-mc-row {
+      height: 5px; background: var(--sp-rule); border-radius: 0;
+    }
+    .sp-mock-card .sp-mc-row.sp-w-90 { width: 90%; }
+    .sp-mock-card .sp-mc-row.sp-w-70 { width: 70%; }
+    .sp-mock-card .sp-mc-row.sp-w-50 { width: 50%; }
+    .sp-mock-card .sp-mc-row.sp-fill {
+      background: var(--sp-ink); width: 0; transition: none;
+    }
+    .sp-mock-card .sp-mc-row.sp-fill.sp-accent-fill { background: var(--sp-accent); }
+
+    /* ────────────────────────────────────────────────────────────────
+       AGENT CHAT BLOCK — 5 cyclic client/agent dialogues
+       Standalone section in middle of page (between Services and Industries)
+       ──────────────────────────────────────────────────────────────── */
+    #agent-chat { background: var(--sp-paper); }
+    .sp-chat-section {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sp-chat-section-head { max-width: 480px; }
+    .sp-chat-frame {
+      border: 1px solid var(--sp-rule);
+      padding: 28px 32px;
+      background: var(--sp-paper);
+      min-height: 360px;
+      position: relative;
+    }
+    .sp-chat-frame::before {
+      content: ''; position: absolute;
+      top: -1px; left: -1px; width: 28px; height: 3px;
+      background: var(--sp-accent);
+    }
+    @media (max-width: 900px) {
+      .sp-chat-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .sp-chat-section-head { max-width: none; }
+      .sp-chat-frame { padding: 22px; min-height: 340px; }
+    }
+    .sp-chat {
+      display: flex; flex-direction: column;
+      font-family: 'Geist', sans-serif;
+    }
+    .sp-chat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--sp-rule);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .sp-chat-kicker {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--sp-muted);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .sp-chat-kicker .sp-ck-dot {
+      width: 6px; height: 6px; background: var(--sp-accent);
+      display: inline-block;
+    }
+    .sp-chat-kicker .sp-ck-num { color: var(--sp-ink); font-weight: 500; }
+    .sp-chat-live {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--sp-ink);
+    }
+    .sp-chat-live .sp-live-dot {
+      width: 6px; height: 6px; background: var(--sp-led, #1FB95B);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(31,185,91,.55);
+      animation: sp-live-pulse 2s ease-out infinite;
+    }
+    @keyframes sp-live-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(31,185,91,.6); }
+      80% { box-shadow: 0 0 0 8px rgba(31,185,91,0); }
+      100% { box-shadow: 0 0 0 0 rgba(31,185,91,0); }
+    }
+    .sp-chat-feed {
+      display: flex; flex-direction: column; gap: 10px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .sp-msg {
+      display: flex; flex-direction: column;
+      max-width: 88%;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .35s ease-out, transform .35s ease-out;
+    }
+    .sp-msg.sp-show { opacity: 1; transform: translateY(0); }
+    .sp-msg-meta {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--sp-muted);
+      margin-bottom: 4px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .sp-msg-meta .sp-meta-mark {
+      width: 5px; height: 5px;
+      background: var(--sp-muted);
+      display: inline-block;
+    }
+    .sp-msg-bubble {
+      padding: 11px 15px;
+      font-family: 'Geist', sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+      letter-spacing: -.005em;
+      border: 1px solid var(--sp-ink);
+      border-radius: 2px;
+    }
+    .sp-msg.sp-client { align-self: flex-end; align-items: flex-end; }
+    .sp-msg.sp-client .sp-msg-bubble {
+      background: var(--sp-ink); color: var(--sp-paper); border-color: var(--sp-ink);
+    }
+    .sp-msg.sp-client .sp-msg-meta { justify-content: flex-end; }
+    .sp-msg.sp-client .sp-meta-mark { background: var(--sp-ink); }
+    .sp-msg.sp-agent { align-self: flex-start; align-items: flex-start; }
+    .sp-msg.sp-agent .sp-msg-bubble {
+      background: var(--sp-paper); color: var(--sp-ink);
+    }
+    .sp-msg.sp-agent .sp-meta-mark { background: var(--sp-accent); }
+    .sp-typing {
+      align-self: flex-start;
+      display: inline-flex; align-items: center;
+      padding: 13px 16px; gap: 5px;
+      border: 1px solid var(--sp-ink);
+      border-radius: 2px;
+      background: var(--sp-paper);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .25s ease-out, transform .25s ease-out;
+    }
+    .sp-typing.sp-show { opacity: 1; transform: translateY(0); }
+    .sp-typing .sp-dot {
+      width: 5px; height: 5px; background: var(--sp-ink);
+      border-radius: 50%;
+      animation: sp-type-bob 1.2s ease-in-out infinite;
+    }
+    .sp-typing .sp-dot:nth-child(2) { animation-delay: .15s; }
+    .sp-typing .sp-dot:nth-child(3) { animation-delay: .3s; }
+    @keyframes sp-type-bob {
+      0%, 100% { transform: translateY(0); opacity: .35; }
+      40% { transform: translateY(-3px); opacity: 1; }
+    }
+
+    /* Legacy hero-mock classes — hidden, kept only so any stale CSS hooks resolve cleanly */
+    .sp-mock-card, .sp-mock-paths, .sp-mock-ticker,
+    .sp-loop, .sp-loop-svg, .sp-loop-arc, .sp-loop-label,
+    .sp-loop-center, .sp-loop-runner { display: none !important; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .sp-anim-ready .sp-mc-1,
+      .sp-anim-ready .sp-mc-2,
+      .sp-anim-ready .sp-mc-3,
+      .sp-anim-ready .sp-tk-dot { animation: none; }
+    }
+
+    @media (max-width: 900px) {
+      #hero { padding-top: 120px; padding-bottom: 80px; }
+      .sp-hero-inner { grid-template-columns: 1fr; gap: 56px; }
+      .sp-hero-visual { max-width: 360px; margin: 0 auto; }
+      .sp-hero-stats { gap: 28px; }
+    }
+
+    /* ── PAIN ─────────────────────────────────────────────── */
+    #pain { background: var(--navy); padding: 80px 0; }
+    #pain .section-label { background: #1e3a5f; color: #5eead4; }
+    #pain .section-title { color: #fff; }
+    #pain .section-sub   { color: #94a3b8; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .pain-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--radius); padding: 28px;
+      transition: all .3s;
+    }
+    .pain-card:hover {
+      background: rgba(255,255,255,.09);
+      border-color: var(--teal);
+      transform: translateY(-4px);
+    }
+    .pain-num {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: var(--teal); color: #fff;
+      font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .pain-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 7px; }
+    .pain-body { font-size: 13.5px; color: #94a3b8; line-height: 1.6; }
+
+    /* ── SERVICES ─────────────────────────────────────────── */
+    #services { background: #fff; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .svc-card {
+      border: 1px solid var(--border);
+      border-radius: 22px; padding: 36px;
+      display: flex; gap: 24px;
+      align-items: flex-start;
+      transition: all .3s;
+      box-shadow: var(--shadow);
+    }
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-light);
+    }
+
+    .svc-left { flex: 1; min-width: 0; }
+
+    .svc-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal-pale), #99f6e4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 18px;
+    }
+
+    .svc-title {
+      font-size: 21px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .svc-desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 18px;
+    }
+    .svc-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .svc-list li {
+      display: flex; align-items: flex-start;
+      gap: 8px; font-size: 13.5px; color: var(--text);
+    }
+    .svc-list li::before {
+      content: '✓';
+      min-width: 18px; height: 18px; border-radius: 50%;
+      background: var(--teal-pale); color: var(--teal-dark);
+      font-size: 10px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    .svc-char { width: 130px; flex-shrink: 0; align-self: center; }
+
+    /* ── INDUSTRIES ───────────────────────────────────────── */
+    #industries { background: var(--bg-light); }
+
+    .ind-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .ind-card {
+      background: #fff; border-radius: var(--radius);
+      padding: 28px 20px; text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: all .3s;
+    }
+    .ind-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal);
+    }
+    .ind-emoji { font-size: 34px; display: block; margin-bottom: 12px; }
+    .ind-name  { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 7px; }
+    .ind-desc  { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* ── PROCESS ──────────────────────────────────────────── */
+    #process { background: #fff; }
+
+    .proc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px; position: relative;
+    }
+    .proc-grid::before {
+      content: ''; position: absolute;
+      top: 27px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      z-index: 0;
+    }
+
+    .proc-step { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--teal); color: #fff;
+      font-size: 20px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .step-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step-desc  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+
+    /* ── RESULTS ──────────────────────────────────────────── */
+    #results {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 72px 0;
+    }
+
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px; text-align: center;
+    }
+
+    .res-num   { font-size: 52px; font-weight: 900; color: var(--teal-light); line-height: 1; margin-bottom: 8px; }
+    .res-label strong { display: block; color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .res-label span   { color: #94a3b8; font-size: 13px; }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    #cta { background: var(--bg-light); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      border-radius: 26px; padding: 64px;
+      display: grid; grid-template-columns: 1fr 220px;
+      gap: 48px; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute;
+      top: -100px; right: -100px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(20,184,166,.18) 0%, transparent 70%);
+    }
+
+    .cta-title  { font-size: 36px; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+    .cta-sub    { font-size: 16px; color: #94a3b8; margin-bottom: 30px; line-height: 1.65; }
+    .cta-btns   { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer { background: var(--navy); padding: 52px 0 32px; }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px; align-items: start;
+      margin-bottom: 36px;
+    }
+    .foot-logo {
+      display: flex; align-items: center; gap: 10px;
+      color: #fff; font-size: 17px; font-weight: 800;
+      text-decoration: none; margin-bottom: 10px;
+    }
+    .foot-tag { color: #475569; font-size: 13.5px; margin-bottom: 20px; }
+    .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .foot-links a { color: #475569; text-decoration: none; font-size: 14px; transition: color .2s; }
+    .foot-links a:hover { color: var(--teal-light); }
+
+    .foot-contact { text-align: right; }
+    .foot-contact a {
+      display: block; color: #94a3b8;
+      text-decoration: none; font-size: 15px;
+      margin-bottom: 8px; transition: color .2s;
+    }
+    .foot-contact a:hover { color: var(--teal-light); }
+
+    .foot-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: #334155; font-size: 13px;
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .ind-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .svc-char { display: none; }
+      .proc-grid { grid-template-columns: repeat(2, 1fr); }
+      .proc-grid::before { display: none; }
+      .res-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { grid-template-columns: 1fr; }
+      .cta-box .cta-char { display: none; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .foot-contact { text-align: left; }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 60px 0; }
+      .ind-grid { grid-template-columns: repeat(2, 1fr); }
+      .res-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── Mobile nav stabilisation (prevent layout jump on EN ↔ RU toggle) ─── */
+    @media (max-width: 720px) {
+      /* Container padding tighter on mobile so we have full width to play with */
+      nav#navbar .container { padding: 0 18px !important; }
+
+      /* nav-inner is flex space-between; ensure inner clusters have breathing room */
+      .nav-inner { gap: 12px; }
+
+      /* Logo: replace 'AI Automation Studio' with shorter 'AI Studio' on mobile */
+      .nav-logo {
+        font-size: 0 !important; /* hide native text node */
+        gap: 8px !important;
+        white-space: nowrap;
+        min-width: 0;
+        flex-shrink: 0;
+      }
+      .nav-logo svg { width: 24px !important; height: 24px !important; flex-shrink: 0; }
+      .nav-logo::after {
+        content: 'AI Studio';
+        font-family: 'Geist', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--sp-ink);
+        letter-spacing: -.005em;
+      }
+
+      /* Lang toggle: wider per button so 'RU' is fully visible, never clipped */
+      .lang-toggle { flex-shrink: 0; }
+      .lang-btn {
+        min-width: 32px !important;
+        text-align: center;
+        padding: 7px 9px !important;
+        font-size: 11px !important;
+        letter-spacing: .14em !important;
+      }
+
+      /* Right cluster: tighter, consistent spacing, vertical alignment */
+      .nav-right { gap: 8px !important; align-items: center; flex-shrink: 0; }
+
+      /* Compact "Book a Call" — hide emoji, shorter padding, nowrap */
+      nav#navbar .btn.btn-primary {
+        height: 34px !important;
+        padding: 0 10px !important;
+        font-weight: 500 !important;
+        white-space: nowrap;
+        flex-shrink: 0;
+        font-size: 0 !important; /* hide text node 📅 */
+      }
+      nav#navbar .btn.btn-primary > span,
+      nav#navbar .btn.btn-primary > .en,
+      nav#navbar .btn.btn-primary > .ru { font-size: 11.5px !important; }
+
+      /* Show hamburger */
+      .hamburger { display: flex; }
+    }
+    /* ─── Mobile menu drawer (fullscreen overlay) ─── */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--sp-paper);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    body.nav-open .mobile-menu {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu-inner {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex; flex-direction: column; gap: 28px;
+      text-align: center;
+      width: auto;
+      min-width: 240px;
+    }
+    .mm-link {
+      font-family: 'Geist', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--sp-ink);
+      text-decoration: none;
+      letter-spacing: -.01em;
+      transition: color .2s ease;
+    }
+    .mm-link:hover { color: var(--sp-accent); }
+    .mm-cta {
+      margin-top: 16px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--sp-ink); color: var(--sp-paper);
+      padding: 14px 28px;
+      font-family: 'Geist', sans-serif;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--sp-ink);
+      transition: background .2s, color .2s;
+    }
+    .mm-cta:hover { background: var(--sp-accent); border-color: var(--sp-accent); }
+
+    /* Hamburger as button — animates to X when nav-open */
+    .hamburger {
+      background: transparent; border: 0; cursor: pointer;
+      padding: 6px;
+      transition: transform .25s ease;
+      position: relative;
+      z-index: 200;
+    }
+    .hamburger span {
+      transition: transform .25s ease, opacity .2s ease;
+      background: var(--sp-ink) !important;
+    }
+    body.nav-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+    body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Lock body scroll when menu is open */
+    body.nav-open { overflow: hidden; }
+
+    @media (max-width: 420px) {
+      /* Tightest phones: tighten everything more */
+      nav#navbar .container { padding: 0 14px !important; }
+      .nav-inner { gap: 8px; height: 64px; }
+      nav#navbar .btn.btn-primary { padding: 0 8px !important; height: 32px !important; }
+      nav#navbar .btn.btn-primary > span { font-size: 11px !important; }
+      .nav-logo { gap: 7px !important; }
+      .nav-logo::after { font-size: 12.5px; }
+      .nav-logo svg { width: 22px !important; height: 22px !important; }
+      .lang-btn { min-width: 28px !important; padding: 6px 7px !important; font-size: 10.5px !important; }
+      .nav-right { gap: 6px !important; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SWISS PULSE — GLOBAL OVERRIDE LAYER
+       Applies the Swiss Pulse system to all pre-existing sections.
+       See DESIGN.md. High specificity intended.
+       ═══════════════════════════════════════════════════════════════════ */
+
+    :root {
+      --sp-paper:     #FAFAF7;
+      --sp-ink:       #0A0A0A;
+      --sp-ink-2:     #1F1F1D;
+      --sp-muted:     #6B6B68;
+      --sp-rule:      #E5E4DE;
+      --sp-rule-dark: #2A2A28;
+      --sp-accent:    #FF3D2E;
+      --sp-accent-2:  #B82215;
+    }
+
+    body {
+      font-family: 'Geist', -apple-system, system-ui, sans-serif !important;
+      background: var(--sp-paper);
+      color: var(--sp-ink-2);
+    }
+
+    /* ── Section frame ─────────────────────────────────────────────── */
+    section { padding: 120px 0; }
+
+    .container { max-width: 1200px; padding: 0 32px; }
+
+    /* ── Section labels (mono kicker, red dot) ─────────────────────── */
+    .section-label {
+      background: transparent !important;
+      color: var(--sp-muted) !important;
+      font-family: 'Geist Mono', monospace !important;
+      font-size: 11px !important; font-weight: 500 !important;
+      letter-spacing: .22em !important;
+      padding: 0 !important;
+      border: 0 !important; border-radius: 0 !important;
+      margin-bottom: 24px !important;
+      display: inline-flex !important; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--sp-accent);
+      display: inline-block;
+    }
+
+    /* ── Section title / sub ──────────────────────────────────────── */
+    .section-title {
+      font-family: 'Geist', sans-serif !important;
+      font-size: clamp(34px, 4.4vw, 56px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -.03em !important;
+      line-height: 1.05 !important;
+      color: var(--sp-ink) !important;
+      margin-bottom: 18px !important;
+    }
+    .section-sub {
+      font-family: 'Geist', sans-serif !important;
+      font-size: 17px !important;
+      color: var(--sp-muted) !important;
+      max-width: 640px;
+    }
+    .section-head { margin-bottom: 72px; }
+
+    /* ── Nav (Swiss Pulse) ────────────────────────────────────────── */
+    nav#navbar {
+      background: rgba(250,250,247,.92) !important;
+      border-bottom: 1px solid var(--sp-rule) !important;
+      box-shadow: none !important;
+    }
+    nav#navbar.scrolled { box-shadow: none !important; border-bottom-color: var(--sp-ink) !important; }
+    .nav-inner { height: 72px; }
+    .nav-logo {
+      color: var(--sp-ink) !important;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600; font-size: 15px;
+      letter-spacing: -.01em;
+      gap: 12px !important;
+    }
+    /* Keep original target/crosshair SVG, restyle to Swiss Pulse palette */
+    .nav-logo svg rect, .foot-logo svg rect { fill: var(--sp-ink) !important; }
+    .nav-logo svg circle[stroke], .nav-logo svg path,
+    .foot-logo svg circle[stroke], .foot-logo svg path { stroke: #fff !important; }
+    .nav-logo svg circle:last-of-type,
+    .foot-logo svg circle:last-of-type {
+      fill: #1FB95B !important;
+      filter: drop-shadow(0 0 1.5px rgba(31,185,91,.85));
+    }
+    .foot-logo {
+      color: var(--sp-ink) !important;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600 !important;
+    }
+    .nav-links a {
+      color: var(--sp-muted) !important;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sp-ink) !important; }
+    .lang-toggle {
+      background: transparent !important;
+      border: 1px solid var(--sp-ink);
+      border-radius: 0 !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    .lang-btn {
+      background: transparent !important;
+      color: var(--sp-muted) !important;
+      font-family: 'Geist Mono', monospace !important;
+      font-size: 10px !important; font-weight: 500 !important;
+      letter-spacing: .15em !important;
+      padding: 8px 12px !important;
+      border-radius: 0 !important;
+      border: 0 !important;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn.active {
+      background: var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+      box-shadow: none !important;
+    }
+    /* Nav primary button (Book a Call) */
+    nav#navbar .btn.btn-primary {
+      background: var(--sp-ink) !important;
+      border-radius: 2px !important;
+      border: 1px solid var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+      font-family: 'Geist', sans-serif !important;
+      font-weight: 500 !important;
+      letter-spacing: .01em;
+      height: 40px; padding: 0 18px !important;
+      box-shadow: none !important;
+      transform: none !important;
+      transition: background .2s, color .2s;
+    }
+    nav#navbar .btn.btn-primary:hover {
+      background: var(--sp-accent) !important;
+      border-color: var(--sp-accent) !important;
+    }
+
+    /* ── Global buttons restyle ───────────────────────────────────── */
+    .btn {
+      border-radius: 2px !important;
+      font-family: 'Geist', sans-serif !important;
+      font-weight: 500 !important;
+      letter-spacing: .01em !important;
+      height: 52px; padding: 0 26px !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .btn-primary {
+      background: var(--sp-ink) !important;
+      border: 1px solid var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+    }
+    .btn-primary:hover {
+      background: var(--sp-accent) !important;
+      border-color: var(--sp-accent) !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .btn-outline {
+      background: transparent !important;
+      color: var(--sp-ink) !important;
+      border: 1px solid var(--sp-ink) !important;
+    }
+    .btn-outline:hover {
+      background: var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+      transform: none !important;
+    }
+    .btn-white {
+      background: var(--sp-paper) !important;
+      color: var(--sp-ink) !important;
+      border: 1px solid var(--sp-paper) !important;
+    }
+    .btn-white:hover {
+      background: var(--sp-accent) !important;
+      border-color: var(--sp-accent) !important;
+      color: var(--sp-paper) !important;
+      transform: none !important;
+    }
+
+    /* ═══ PAIN — dark ink canvas ═══ */
+    #pain {
+      background: var(--sp-ink) !important;
+      padding: 120px 0;
+    }
+    #pain .section-label { color: #9A9A95 !important; }
+    #pain .section-label::before { background: var(--sp-accent); }
+    #pain .section-title { color: var(--sp-paper) !important; }
+    #pain .section-sub { color: #9A9A95 !important; }
+    .pain-grid { gap: 1px !important; background: var(--sp-rule-dark); padding: 1px;
+      grid-template-columns: repeat(5, 1fr) !important;
+    }
+    .pain-card {
+      background: var(--sp-ink) !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 28px 22px !important;
+      transition: background .25s ease;
+    }
+    @media (max-width: 1100px) {
+      .pain-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    }
+    @media (max-width: 720px) {
+      .pain-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    .pain-card:hover {
+      background: #181816 !important;
+      transform: none !important;
+      border-color: transparent !important;
+    }
+    .pain-num {
+      background: transparent !important;
+      color: var(--sp-accent) !important;
+      font-family: 'Geist Mono', monospace !important;
+      font-size: 11px !important;
+      letter-spacing: .22em !important;
+      width: auto !important; height: auto !important;
+      border-radius: 0 !important;
+      justify-content: flex-start !important;
+      margin-bottom: 18px !important;
+    }
+    .pain-num::before { content: '— '; color: var(--sp-muted); margin-right: 4px; }
+    .pain-name {
+      color: var(--sp-paper) !important;
+      font-family: 'Geist', sans-serif !important;
+      font-size: 19px !important; font-weight: 600 !important;
+      letter-spacing: -.01em;
+      margin-bottom: 12px !important;
+    }
+    .pain-body {
+      color: #9A9A95 !important;
+      font-size: 14.5px !important; line-height: 1.65 !important;
+    }
+
+    /* ═══ SERVICES — hairline cards on paper ═══ */
+    #services { background: var(--sp-paper) !important; }
+    .services-grid { gap: 28px !important; }
+    .svc-card {
+      border: 1px solid var(--sp-rule) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 40px !important;
+      background: var(--sp-paper) !important;
+      transition: border-color .25s, transform .25s;
+    }
+    .svc-card:hover {
+      box-shadow: none !important;
+      border-color: var(--sp-ink) !important;
+      transform: translateY(-2px) !important;
+    }
+    .svc-icon {
+      background: var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+      border-radius: 0 !important;
+      width: 44px !important; height: 44px !important;
+      font-size: 20px !important;
+      margin-bottom: 22px !important;
+    }
+    .svc-title {
+      color: var(--sp-ink) !important;
+      font-family: 'Geist', sans-serif !important;
+      font-size: 22px !important; font-weight: 600 !important;
+      letter-spacing: -.015em;
+    }
+    .svc-desc {
+      color: var(--sp-muted) !important;
+      font-size: 14.5px !important; line-height: 1.65 !important;
+    }
+    .svc-list li {
+      font-family: 'Geist', sans-serif !important;
+      color: var(--sp-ink-2) !important;
+      font-size: 13.5px !important;
+    }
+    .svc-list li::before {
+      background: var(--sp-ink) !important;
+      color: var(--sp-paper) !important;
+      border-radius: 0 !important;
+      content: '+';
+      font-weight: 500 !important;
+      width: 16px !important; height: 16px !important;
+    }
+    .svc-char { opacity: .55; filter: grayscale(.4); }
+    .svc-card:hover .svc-char { opacity: 1; filter: none; transition: all .3s; }
+
+    /* ═══ INDUSTRIES — minimal hairline grid ═══ */
+    #industries { background: var(--sp-paper) !important; }
+    .ind-grid { gap: 1px !important; background: var(--sp-rule); padding: 1px; }
+    .ind-card {
+      background: var(--sp-paper) !important;
+      border: 0 !important; border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 36px 24px !important;
+      transition: background .25s;
+    }
+    .ind-card:hover {
+      background: var(--sp-ink) !important;
+      border-color: transparent !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .ind-card:hover .ind-name { color: var(--sp-paper) !important; }
+    .ind-card:hover .ind-desc { color: #C9C5BC !important; } /* brighter for readability on ink */
+    .ind-emoji {
+      font-size: 28px !important;
+      filter: grayscale(1); opacity: .85;
+      transition: filter .25s, opacity .25s;
+    }
+    .ind-card:hover .ind-emoji { filter: none; opacity: 1; }
+    .ind-name {
+      color: var(--sp-ink) !important;
+      font-family: 'Geist', sans-serif !important;
+      font-size: 15.5px !important; font-weight: 600 !important;
+      letter-spacing: -.005em;
+      margin-bottom: 8px;
+      transition: color .25s;
+    }
+    .ind-desc {
+      color: var(--sp-body) !important;
+      font-size: 13.5px !important;
+      line-height: 1.55;
+      transition: color .25s;
+    }
+
+    /* ═══ PROCESS — timeline w/ animated SVG path ═══ */
+    #process { background: var(--sp-paper) !important; position: relative; }
+    .proc-grid::before { display: none !important; }
+    .proc-grid {
+      position: relative;
+      padding-top: 60px;
+    }
+    /* New SVG track behind step numbers */
+    .proc-track {
+      position: absolute; top: 86px; left: 0; right: 0;
+      height: 2px;
+      pointer-events: none;
+    }
+    .proc-track svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .proc-track svg path { fill: none; stroke: var(--sp-ink); stroke-width: 1.5; }
+    .proc-track svg path.sp-accent-path { stroke: var(--sp-accent); }
+    .step-num {
+      background: var(--sp-paper) !important;
+      color: var(--sp-ink) !important;
+      border: 1px solid var(--sp-ink) !important;
+      border-radius: 50%;
+      width: 56px !important; height: 56px !important;
+      font-family: 'Geist Mono', monospace !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      letter-spacing: .12em !important;
+      position: relative;
+      z-index: 2;
+    }
+    .proc-step { text-align: left !important; }
+    .proc-step .step-num { margin: 0 0 24px 0 !important; }
+    .step-name, .proc-title, .proc-step h3 {
+      font-family: 'Geist', sans-serif !important;
+      color: var(--sp-ink) !important;
+      font-size: 18px !important; font-weight: 600 !important;
+    }
+    .step-desc, .proc-step p {
+      color: var(--sp-muted) !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* ═══ RESULTS — dark stats canvas ═══ */
+    #results {
+      background: var(--sp-ink) !important;
+      padding: 100px 0 !important;
+    }
+    .res-grid {
+      gap: 1px !important; background: var(--sp-rule-dark); padding: 0;
+    }
+    .res-grid > * {
+      background: var(--sp-ink); padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .res-num {
+      font-family: 'Geist Mono', monospace !important;
+      color: var(--sp-paper) !important;
+      font-size: clamp(36px, 4vw, 56px) !important;
+      font-weight: 500 !important;
+      letter-spacing: -.02em !important;
+      font-variant-numeric: tabular-nums;
+      line-height: 1 !important;
+      margin-bottom: 8px !important;
+    }
+    /* res-label > strong = the headline label ("Productivity"); res-label > span = sub-caption */
+    .res-label strong {
+      display: block !important;
+      font-family: 'Geist', sans-serif !important;
+      color: var(--sp-paper) !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      letter-spacing: -.005em !important;
+      margin-bottom: 4px !important;
+      text-transform: none !important;
+    }
+    .res-label > span,
+    .res-label span:not(:first-child) {
+      font-family: 'Geist Mono', monospace !important;
+      color: #BEB6A7 !important;
+      font-size: 11px !important;
+      letter-spacing: .14em !important;
+      text-transform: uppercase;
+      line-height: 1.45;
+    }
+
+    /* ═══ CTA — ink canvas, accent bar ═══ */
+    #cta { background: var(--sp-paper) !important; padding: 120px 0; }
+    .cta-box {
+      background: var(--sp-ink) !important;
+      border-radius: 0 !important;
+      padding: 72px !important;
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .cta-box::before {
+      content: '' !important;
+      background: none !important;
+      position: absolute !important; top: 0 !important; left: 0 !important;
+      width: 6px !important; height: 100% !important;
+      background-color: var(--sp-accent) !important;
+      border-radius: 0 !important;
+    }
+    .cta-title {
+      font-family: 'Geist', sans-serif !important;
+      font-size: clamp(28px, 4.2vw, 56px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -.03em !important;
+      color: var(--sp-paper) !important;
+      line-height: 1.08 !important;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    @media (max-width: 720px) {
+      #cta { padding: 56px 0; }
+      .cta-box {
+        padding: 32px 24px !important;
+        text-align: center;
+      }
+      .cta-title {
+        font-size: clamp(22px, 5.6vw, 32px) !important;
+        hyphens: manual !important;
+        word-break: normal !important;
+        text-align: center;
+        margin-left: auto; margin-right: auto;
+        max-width: 18ch;
+      }
+      .cta-sub {
+        font-size: 14.5px !important;
+        text-align: center;
+        margin: 14px auto 28px !important;
+        max-width: 32ch;
+      }
+      .cta-btns {
+        justify-content: center !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px !important;
+      }
+      .cta-btns .btn { width: auto; padding: 0 22px !important; }
+      /* Ghost button must be visible on the dark CTA background */
+      .cta-box .btn-outline {
+        color: var(--sp-paper) !important;
+        border-color: var(--sp-paper) !important;
+        background: transparent !important;
+      }
+      .cta-box .btn-outline:hover {
+        background: var(--sp-paper) !important;
+        color: var(--sp-ink) !important;
+      }
+      /* Move accent bar from left (vertical) to top (horizontal) on mobile, looks better in narrow box */
+      .cta-box::before {
+        width: 100% !important;
+        height: 4px !important;
+        background-color: var(--sp-accent) !important;
+      }
+    }
+    .cta-sub {
+      color: #9A9A95 !important;
+      font-size: 17px !important;
+      line-height: 1.6 !important;
+    }
+    .cta-box .cta-char { display: none !important; }
+    /* Ghost / outline button needs paper-coloured border inside the dark CTA box on every viewport */
+    .cta-box .btn-outline {
+      color: var(--sp-paper) !important;
+      border-color: var(--sp-paper) !important;
+      background: transparent !important;
+    }
+    .cta-box .btn-outline:hover {
+      background: var(--sp-paper) !important;
+      color: var(--sp-ink) !important;
+    }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--sp-paper) !important;
+      border-top: 1px solid var(--sp-rule);
+      color: var(--sp-muted) !important;
+      font-family: 'Geist', sans-serif !important;
+    }
+    footer a { color: var(--sp-ink) !important; }
+    footer * { font-family: 'Geist', sans-serif !important; }
+
+    /* ── Reveal class for ScrollTrigger entrances ────────────────── */
+    .sp-reveal { opacity: 0; transform: translateY(28px); }
+    @media (prefers-reduced-motion: reduce) {
+      .sp-reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="#" class="nav-logo">
+        <!-- Logo mark -->
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+          <rect width="34" height="34" rx="9" fill="#0d9488"/>
+          <circle cx="17" cy="17" r="7" stroke="#fff" stroke-width="1.8" fill="none"/>
+          <path d="M17 10.5V7M17 27v-3.5M10.5 17H7M27 17h-3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="17" cy="17" r="2.8" fill="#fff"/>
+        </svg>
+        AI Automation Studio
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services"><span class="en">Services</span><span class="ru">Услуги</span></a></li>
+        <li><a href="#industries"><span class="en">Industries</span><span class="ru">Отрасли</span></a></li>
+        <li><a href="#process"><span class="en">Process</span><span class="ru">Процесс</span></a></li>
+        <li><a href="#cta"><span class="en">Contact</span><span class="ru">Контакты</span></a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn"        id="btn-ru" onclick="setLang('ru')">RU</button>
+        </div>
+        <a href="https://calendly.com/dmir017" target="_blank" class="btn btn-primary" style="padding:9px 20px;font-size:14px;">
+          📅 <span class="en">Book a Call</span><span class="ru">Записаться</span>
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu drawer -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-inner">
+    <a href="#services" class="mm-link"><span class="en">Services</span><span class="ru">Услуги</span></a>
+    <a href="#industries" class="mm-link"><span class="en">Industries</span><span class="ru">Отрасли</span></a>
+    <a href="#process" class="mm-link"><span class="en">Process</span><span class="ru">Процесс</span></a>
+    <a href="#cta" class="mm-link"><span class="en">Contact</span><span class="ru">Контакты</span></a>
+    <a href="https://calendly.com/dmir017" target="_blank" class="mm-cta">
+      <span class="en">Book a free call</span><span class="ru">Записаться на звонок</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </nav>
+</div>
+
+
+<!-- ═══════════════════════════════ HERO — Swiss Pulse ════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="sp-hero-inner">
+
+      <!-- LEFT: copy -->
+      <div class="sp-hero-copy">
+        <div class="sp-kicker">
+          <span class="en">AI Automation Studio</span><span class="ru">AI Automation Studio</span>
+          <span class="sp-num">— 04 / SMB · AI · OPS</span>
+        </div>
+
+        <h1 class="sp-hero-title">
+          <span class="en">
+            <span class="sp-word"><span>Automate.</span></span><br>
+            <span class="sp-word sp-accent">
+              <span>Scale.</span>
+              <svg class="sp-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M3 8 C 60 2, 120 11, 237 5" />
+              </svg>
+            </span><br>
+            <span class="sp-word"><span>Grow.</span></span>
+          </span>
+          <span class="ru">
+            <span class="sp-word"><span>Автоматизируй.</span></span><br>
+            <span class="sp-word sp-accent">
+              <span>Масштабируй.</span>
+              <svg class="sp-underline" viewBox="0 0 360 12" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M3 8 C 90 2, 180 11, 357 5" />
+              </svg>
+            </span><br>
+            <span class="sp-word"><span>Расти.</span></span>
+          </span>
+        </h1>
+
+        <p class="sp-hero-sub">
+          <span class="en">AI-powered process automation, trend watching, and mass content creation for service firms, manufacturers, accountants, law practices, and e-commerce brands.</span>
+          <span class="ru">AI-автоматизация процессов, мониторинг трендов и массовое создание контента для сервисных компаний, производителей, бухгалтеров, юристов и e-commerce брендов.</span>
+        </p>
+
+        <div class="sp-hero-ctas">
+          <a href="https://calendly.com/dmir017" target="_blank" class="sp-btn sp-btn-primary">
+            <span class="en">Book a free call</span><span class="ru">Записаться на звонок</span>
+            <span class="sp-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="mailto:boris.korol@ai-automation.studio" class="sp-btn sp-btn-ghost">
+            <span class="en">Send an email</span><span class="ru">Написать нам</span>
+          </a>
+        </div>
+
+        <div class="sp-hero-stats">
+          <div>
+            <div class="sp-stat-num"><span data-count="1.5">0.0</span><span class="sp-unit">×</span></div>
+            <div class="sp-stat-label"><span class="en">Productivity boost</span><span class="ru">Рост продуктивности</span></div>
+          </div>
+          <div>
+            <div class="sp-stat-num"><span data-count="85">0</span><span class="sp-unit">%</span></div>
+            <div class="sp-stat-label"><span class="en">Faster processes</span><span class="ru">Быстрее процессы</span></div>
+          </div>
+          <div>
+            <div class="sp-stat-num"><span>24</span><span class="sp-unit">/7</span></div>
+            <div class="sp-stat-label"><span class="en">AI monitoring</span><span class="ru">AI-мониторинг</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: compact agent chat (vertically centred) -->
+      <div class="sp-hero-chat-wrap">
+        <div class="sp-chat sp-chat--compact" id="sp-chat" aria-live="polite">
+          <div class="sp-chat-head">
+            <div class="sp-chat-kicker">
+              <span class="sp-ck-dot"></span>
+              <span class="sp-ck-num" id="sp-chat-num">01 / 05</span>
+              <span id="sp-chat-topic">Reconciliation</span>
+            </div>
+            <div class="sp-chat-live">
+              <span class="sp-live-dot"></span>
+              <span>Live</span>
+            </div>
+          </div>
+          <div class="sp-chat-feed" id="sp-chat-feed"></div>
+        </div>
+      </div>
+
+      <!-- Legacy hidden block (kept for safe diff; remove next pass) -->
+      <div class="hero-visual" style="display:none">
+
+        <!-- Float card 1 -->
+        <div class="float-card fc1">
+          <div class="fc-icon">⚡</div>
+          <div class="fc-text">
+            <strong><span class="en">Process Automated</span><span class="ru">Процесс автоматизирован</span></strong>
+            <span><span class="en">Saved 3.2 hrs today</span><span class="ru">Сэкономлено 3.2 часа</span></span>
+          </div>
+        </div>
+
+        <!-- Float card 3 -->
+        <div class="float-card fc3">
+          <div class="fc-icon">📈</div>
+          <div class="fc-text">
+            <strong><span class="en">Trend Alert</span><span class="ru">Новый тренд</span></strong>
+            <span><span class="en">AI spotted opportunity</span><span class="ru">AI нашёл возможность</span></span>
+          </div>
+        </div>
+
+        <!-- Float card 2 -->
+        <div class="float-card fc2">
+          <div class="fc-icon">✍️</div>
+          <div class="fc-text">
+            <strong><span class="en">Content Created</span><span class="ru">Контент готов</span></strong>
+            <span><span class="en">48 posts generated</span><span class="ru">48 постов создано</span></span>
+          </div>
+        </div>
+
+        <!-- ░░ HERO CHARACTER — Excited female professional ░░ -->
+        <svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;display:block;margin:0 auto;">
+          <!-- Shadow -->
+          <ellipse cx="150" cy="412" rx="80" ry="10" fill="#0d948825"/>
+
+          <!-- Body — teal blazer -->
+          <path d="M 62 258 Q 62 210 150 200 Q 238 210 238 258 L 250 420 L 50 420 Z" fill="#0d9488"/>
+          <!-- Lapels -->
+          <path d="M 114 200 L 150 232 L 186 200 L 178 258 L 122 258 Z" fill="#f8fafc"/>
+          <!-- Inner shirt -->
+          <path d="M 124 200 L 150 226 L 176 200 L 170 250 L 130 250 Z" fill="#e0f2fe"/>
+          <!-- Buttons -->
+          <circle cx="150" cy="236" r="3" fill="#0f766e"/>
+          <circle cx="150" cy="248" r="3" fill="#0f766e"/>
+
+          <!-- Neck -->
+          <rect x="134" y="172" width="32" height="34" rx="9" fill="#FDBCB4"/>
+
+          <!-- Head — large & round (Pixar proportion) -->
+          <ellipse cx="150" cy="128" rx="80" ry="86" fill="#FDBCB4"/>
+
+          <!-- Hair back -->
+          <ellipse cx="150" cy="62" rx="80" ry="38" fill="#3D2314"/>
+          <!-- Side hair left -->
+          <path d="M 70 108 Q 56 170 68 230 Q 78 205 86 180 Q 76 148 80 118 Z" fill="#3D2314"/>
+          <!-- Side hair right -->
+          <path d="M 230 108 Q 244 170 232 230 Q 222 205 214 180 Q 224 148 220 118 Z" fill="#3D2314"/>
+
+          <!-- ── LEFT EYE ── -->
+          <ellipse cx="118" cy="122" rx="22" ry="24" fill="#fff"/>
+          <!-- Eyelid -->
+          <path d="M 96 110 Q 118 102 140 110 Q 136 112 118 111 Q 100 112 96 110 Z" fill="#FDBCB4"/>
+          <!-- Iris -->
+          <circle cx="118" cy="126" r="16" fill="#1a6b7a"/>
+          <!-- Pupil -->
+          <circle cx="118" cy="126" r="10" fill="#0c2730"/>
+          <!-- Main highlight -->
+          <circle cx="112" cy="119" r="6" fill="#fff"/>
+          <!-- Small highlight -->
+          <circle cx="122" cy="130" r="2.5" fill="#fff" opacity=".7"/>
+          <!-- Lash line -->
+          <path d="M 96 110 Q 118 103 140 110" stroke="#2d1810" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+          <!-- ── RIGHT EYE ── -->
+          <ellipse cx="182" cy="122" rx="22" ry="24" fill="#fff"/>
+          <path d="M 160 110 Q 182 102 204 110 Q 200 112 182 111 Q 164 112 160 110 Z" fill="#FDBCB4"/>
+          <circle cx="182" cy="126" r="16" fill="#1a6b7a"/>
+          <circle cx="182" cy="126" r="10" fill="#0c2730"/>
+          <circle cx="176" cy="119" r="6" fill="#fff"/>
+          <circle cx="186" cy="130" r="2.5" fill="#fff" opacity=".7"/>
+          <path d="M 160 110 Q 182 103 204 110" stroke="#2d1810" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+          <!-- Eyebrows -->
+          <path d="M 99 102 Q 118 93 138 101" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M 162 101 Q 182 93 201 102" stroke="#3D2314" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+          <!-- Nose — subtle -->
+          <ellipse cx="150" cy="150" rx="5" ry="3.5" fill="#e08070" opacity=".35"/>
+
+          <!-- Smile — big, happy -->
+          <path d="M 116 165 Q 150 192 184 165" fill="#FF6B7A" stroke="#c4435a" stroke-width="1.5"/>
+          <!-- Teeth -->
+          <path d="M 119 165 Q 150 184 181 165 Q 178 172 150 173 Q 122 172 119 165 Z" fill="#fff"/>
+
+          <!-- Cheeks -->
+          <ellipse cx="96"  cy="158" rx="16" ry="10" fill="#FF8FA3" opacity=".35"/>
+          <ellipse cx="204" cy="158" rx="16" ry="10" fill="#FF8FA3" opacity=".35"/>
+
+          <!-- Arms — holding laptop -->
+          <path d="M 64 260 Q 40 310 48 345" stroke="#0d9488" stroke-width="28" fill="none" stroke-linecap="round"/>
+          <path d="M 236 260 Q 260 310 252 345" stroke="#0d9488" stroke-width="28" fill="none" stroke-linecap="round"/>
+          <ellipse cx="48"  cy="347" rx="15" ry="11" fill="#FDBCB4"/>
+          <ellipse cx="252" cy="347" rx="15" ry="11" fill="#FDBCB4"/>
+
+          <!-- Laptop -->
+          <rect x="40"  y="326" width="220" height="130" rx="11" fill="#1e3a5f"/>
+          <rect x="49"  y="335" width="202" height="110" rx="7"  fill="#0f172a"/>
+
+          <!-- Screen content -->
+          <rect x="60" y="346" width="88" height="6" rx="3" fill="#14b8a6" opacity=".85"/>
+          <rect x="60" y="358" width="64" height="4" rx="2" fill="#475569"/>
+          <rect x="60" y="368" width="72" height="4" rx="2" fill="#475569" opacity=".7"/>
+          <rect x="60" y="378" width="52" height="4" rx="2" fill="#475569" opacity=".5"/>
+
+          <!-- Chart bars -->
+          <rect x="170" y="346" width="11" height="38" rx="3" fill="#0d9488" opacity=".5"/>
+          <rect x="185" y="336" width="11" height="48" rx="3" fill="#0d9488" opacity=".7"/>
+          <rect x="200" y="352" width="11" height="32" rx="3" fill="#0d9488" opacity=".5"/>
+          <rect x="215" y="330" width="11" height="54" rx="3" fill="#14b8a6"/>
+          <rect x="230" y="340" width="11" height="44" rx="3" fill="#14b8a6" opacity=".8"/>
+
+          <!-- Trend line over bars -->
+          <polyline points="175,362 190,345 205,370 219,330 235,342"
+                    stroke="#f59e0b" stroke-width="2.5"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      </div><!-- .hero-visual -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ PAIN POINTS ═════════════════════════════ -->
+<section id="pain">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="en">The Problem</span><span class="ru">Проблема</span>
+      </div>
+      <h2 class="section-title">
+        <span class="en">Is Your Business Stuck in These Traps?</span>
+        <span class="ru">Узнаёте свой бизнес?</span>
+      </h2>
+      <p class="section-sub">
+        <span class="en">Manual work, missed trends, and slow content — these bottlenecks cost SMBs thousands of hours every year.</span>
+        <span class="ru">Ручной труд, упущенные тренды, медленный контент — эти узкие места стоят малому и среднему бизнесу тысячи часов каждый год.</span>
+      </p>
+    </div>
+
+    <div class="pain-grid">
+      <!-- 1 -->
+      <div class="pain-card">
+        <div class="pain-num">1</div>
+        <div class="pain-name"><span class="en">Manual Overload</span><span class="ru">Ручная перегрузка</span></div>
+        <p class="pain-body"><span class="en">Data entry, document prep, and routine tasks consume hours that your team should spend on clients.</span><span class="ru">Ввод данных, подготовка документов и рутинные задачи пожирают время, которое должно уходить на клиентов.</span></p>
+      </div>
+      <!-- 2 -->
+      <div class="pain-card">
+        <div class="pain-num">2</div>
+        <div class="pain-name"><span class="en">Blind to Trends</span><span class="ru">Тренды мимо вас</span></div>
+        <p class="pain-body"><span class="en">Your competitors spot market shifts before you do because no one has time to monitor news, prices, and signals.</span><span class="ru">Конкуренты замечают изменения раньше вас — никто не успевает следить за новостями, ценами и сигналами рынка.</span></p>
+      </div>
+      <!-- 3 -->
+      <div class="pain-card">
+        <div class="pain-num">3</div>
+        <div class="pain-name"><span class="en">Slow Content Pipeline</span><span class="ru">Медленный контент</span></div>
+        <p class="pain-body"><span class="en">Creating consistent, high-quality marketing content takes too long and blocks your growth.</span><span class="ru">Создание качественного маркетингового контента занимает слишком много времени и тормозит рост.</span></p>
+      </div>
+      <!-- 4 -->
+      <div class="pain-card">
+        <div class="pain-num">4</div>
+        <div class="pain-name"><span class="en">Scaling Pain</span><span class="ru">Боль роста</span></div>
+        <p class="pain-body"><span class="en">Growing the business means hiring more staff for repetitive work — margins shrink while overheads rise.</span><span class="ru">Рост бизнеса требует нанимать больше людей на рутину — маржа падает, расходы растут.</span></p>
+      </div>
+      <!-- 5 -->
+      <div class="pain-card">
+        <div class="pain-num">5</div>
+        <div class="pain-name"><span class="en">Compliance Burden</span><span class="ru">Нагрузка соответствия</span></div>
+        <p class="pain-body"><span class="en">Tracking deadlines, checklists, and follow-ups is error-prone and eats senior staff time.</span><span class="ru">Отслеживание дедлайнов, чеклистов и напоминаний — источник ошибок и поглотитель времени старших специалистов.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ SERVICES ════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="en">What We Do</span><span class="ru">Что мы делаем</span>
+      </div>
+      <h2 class="section-title">
+        <span class="en">Four Ways We Transform Your Business</span>
+        <span class="ru">Четыре способа изменить ваш бизнес</span>
+      </h2>
+      <p class="section-sub">
+        <span class="en">From eliminating repetitive tasks to generating content at scale — we build intelligent systems that run while you sleep.</span>
+        <span class="ru">От устранения рутинных задач до генерации контента в масштабе — мы создаём интеллектуальные системы, которые работают пока вы спите.</span>
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Service 1: Process Automation -->
+      <div class="svc-card">
+        <div class="svc-left">
+          <div class="svc-icon">⚙️</div>
+          <h3 class="svc-title"><span class="en">Process Automation</span><span class="ru">Автоматизация процессов</span></h3>
+          <p class="svc-desc"><span class="en">End-to-end automation of multi-step business workflows — from client onboarding and invoicing to compliance tracking and reporting.</span><span class="ru">Сквозная автоматизация многоэтапных бизнес-процессов — от онбординга клиентов и выставления счетов до отслеживания соответствия и отчётности.</span></p>
+          <ul class="svc-list">
+            <li><span class="en">Client onboarding flows</span><span class="ru">Процессы онбординга клиентов</span></li>
+            <li><span class="en">Invoice & document generation</span><span class="ru">Генерация счетов и документов</span></li>
+            <li><span class="en">Compliance deadline tracking</span><span class="ru">Отслеживание дедлайнов соответствия</span></li>
+            <li><span class="en">CRM & data synchronisation</span><span class="ru">Синхронизация CRM и данных</span></li>
+          </ul>
+        </div>
+        <!-- Character: focused male with glasses -->
+        <div class="svc-char">
+          <svg viewBox="0 0 160 210" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+            <!-- Shadow -->
+            <ellipse cx="80" cy="204" rx="44" ry="7" fill="#0d948820"/>
+            <!-- Body — navy suit -->
+            <path d="M 28 148 Q 28 122 80 116 Q 132 122 132 148 L 140 210 L 20 210 Z" fill="#1e3a5f"/>
+            <!-- Shirt -->
+            <path d="M 62 116 L 80 134 L 98 116 L 94 148 L 66 148 Z" fill="#f8fafc"/>
+            <!-- Tie -->
+            <polygon points="80,118 75,130 80,132 85,130" fill="#0d9488"/>
+            <!-- Neck -->
+            <rect x="70" y="100" width="20" height="20" rx="6" fill="#FDBCB4"/>
+            <!-- Head -->
+            <ellipse cx="80" cy="70" rx="50" ry="54" fill="#FDBCB4"/>
+            <!-- Hair — short, dark -->
+            <path d="M 30 58 Q 32 24 80 18 Q 128 24 130 58 Q 120 40 80 38 Q 40 40 30 58 Z" fill="#2d1a0e"/>
+            <!-- Sideburns -->
+            <rect x="29" y="55" width="8" height="22" rx="4" fill="#2d1a0e"/>
+            <rect x="123" y="55" width="8" height="22" rx="4" fill="#2d1a0e"/>
+            <!-- Glasses frame left -->
+            <rect x="37" y="58" width="34" height="22" rx="7" fill="none" stroke="#374151" stroke-width="2.5"/>
+            <!-- Glasses frame right -->
+            <rect x="89" y="58" width="34" height="22" rx="7" fill="none" stroke="#374151" stroke-width="2.5"/>
+            <!-- Bridge -->
+            <path d="M 71 69 L 89 69" stroke="#374151" stroke-width="2.5"/>
+            <!-- Left eye -->
+            <ellipse cx="54" cy="69" rx="11" ry="12" fill="#fff"/>
+            <circle cx="54" cy="71" r="8"  fill="#2d6a8a"/>
+            <circle cx="54" cy="71" r="5"  fill="#0f2330"/>
+            <circle cx="50" cy="67" r="3"  fill="#fff"/>
+            <!-- Right eye — narrowed, focused -->
+            <ellipse cx="106" cy="69" rx="11" ry="11" fill="#fff"/>
+            <circle cx="106" cy="71" r="7"  fill="#2d6a8a"/>
+            <circle cx="106" cy="71" r="4.5" fill="#0f2330"/>
+            <circle cx="102" cy="67" r="2.8" fill="#fff"/>
+            <!-- Eyebrows — focused, slightly furrowed -->
+            <path d="M 38 56 Q 54 50 70 56" stroke="#2d1a0e" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M 90 55 Q 106 49 122 56" stroke="#2d1a0e" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Small smile / concentrated -->
+            <path d="M 62 94 Q 80 102 98 94" stroke="#2d1a0e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <!-- Cheeks subtle -->
+            <ellipse cx="44" cy="88" rx="9" ry="6" fill="#FF8FA3" opacity=".2"/>
+            <ellipse cx="116" cy="88" rx="9" ry="6" fill="#FF8FA3" opacity=".2"/>
+            <!-- Gear icon in hand area -->
+            <circle cx="80" cy="168" r="18" fill="#0d9488" opacity=".15"/>
+            <circle cx="80" cy="168" r="12" fill="none" stroke="#0d9488" stroke-width="2.5"/>
+            <circle cx="80" cy="168" r="5"  fill="#0d9488"/>
+            <path d="M80 156v-4M80 184v-4M68 168h-4M96 168h-4M71 159l-3-3M92 177l-3-3M71 177l-3 3M92 159l-3 3" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Service 2: Task Automation -->
+      <div class="svc-card">
+        <div class="svc-left">
+          <div class="svc-icon">✅</div>
+          <h3 class="svc-title"><span class="en">Task Automation</span><span class="ru">Автоматизация задач</span></h3>
+          <p class="svc-desc"><span class="en">AI agents handle repetitive daily tasks so your team can focus on work that actually requires human judgement and creativity.</span><span class="ru">AI-агенты берут на себя повседневные рутинные задачи, чтобы ваша команда могла сосредоточиться на работе, требующей человеческого суждения.</span></p>
+          <ul class="svc-list">
+            <li><span class="en">Email triage & smart responses</span><span class="ru">Сортировка почты и умные ответы</span></li>
+            <li><span class="en">Data collection & validation</span><span class="ru">Сбор и проверка данных</span></li>
+            <li><span class="en">Scheduling & follow-up sequences</span><span class="ru">Планирование и цепочки follow-up</span></li>
+            <li><span class="en">24/7 AI chatbots for clients</span><span class="ru">AI-чатботы для клиентов 24/7</span></li>
+          </ul>
+        </div>
+        <!-- Character: cheerful female with checklist -->
+        <div class="svc-char">
+          <svg viewBox="0 0 160 210" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+            <ellipse cx="80" cy="204" rx="44" ry="7" fill="#0d948820"/>
+            <!-- Body — teal-light -->
+            <path d="M 28 148 Q 28 122 80 116 Q 132 122 132 148 L 140 210 L 20 210 Z" fill="#14b8a6"/>
+            <path d="M 58 116 L 80 130 L 102 116 L 97 148 L 63 148 Z" fill="#f8fafc"/>
+            <!-- Neck -->
+            <rect x="70" y="100" width="20" height="20" rx="6" fill="#f5c5a3"/>
+            <!-- Head -->
+            <ellipse cx="80" cy="70" rx="50" ry="54" fill="#f5c5a3"/>
+            <!-- Hair — ponytail -->
+            <ellipse cx="80" cy="28" rx="50" ry="24" fill="#5c3317"/>
+            <!-- Ponytail -->
+            <path d="M 116 35 Q 135 50 130 80 Q 128 65 118 60 Q 125 48 116 35 Z" fill="#5c3317"/>
+            <!-- Left eye -->
+            <ellipse cx="60" cy="68" rx="14" ry="15" fill="#fff"/>
+            <path d="M 46 59 Q 60 52 74 59 Q 70 61 60 60 Q 50 61 46 59 Z" fill="#f5c5a3"/>
+            <circle cx="60" cy="72" r="10" fill="#8B4513" opacity=".9"/>
+            <circle cx="60" cy="72" r="6"  fill="#2d1a0e"/>
+            <circle cx="56" cy="67" r="4"  fill="#fff"/>
+            <circle cx="63" cy="74" r="1.8" fill="#fff" opacity=".7"/>
+            <path d="M 46 59 Q 60 52 74 59" stroke="#3d2410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Right eye -->
+            <ellipse cx="100" cy="68" rx="14" ry="15" fill="#fff"/>
+            <path d="M 86 59 Q 100 52 114 59 Q 110 61 100 60 Q 90 61 86 59 Z" fill="#f5c5a3"/>
+            <circle cx="100" cy="72" r="10" fill="#8B4513" opacity=".9"/>
+            <circle cx="100" cy="72" r="6"  fill="#2d1a0e"/>
+            <circle cx="96" cy="67" r="4"  fill="#fff"/>
+            <circle cx="103" cy="74" r="1.8" fill="#fff" opacity=".7"/>
+            <path d="M 86 59 Q 100 52 114 59" stroke="#3d2410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Eyebrows — happy arched -->
+            <path d="M 48 54 Q 60 46 72 54" stroke="#3d2410" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M 88 54 Q 100 46 112 54" stroke="#3d2410" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <ellipse cx="80" cy="84" rx="4" ry="3" fill="#c4845a" opacity=".35"/>
+            <!-- Big smile -->
+            <path d="M 58 96 Q 80 114 102 96" fill="#FF6B7A" stroke="#c4435a" stroke-width="1.5"/>
+            <path d="M 60 96 Q 80 110 100 96 Q 97 103 80 104 Q 63 103 60 96 Z" fill="#fff"/>
+            <ellipse cx="52"  cy="92" rx="10" ry="7" fill="#FF8FA3" opacity=".4"/>
+            <ellipse cx="108" cy="92" rx="10" ry="7" fill="#FF8FA3" opacity=".4"/>
+            <!-- Checklist in hand area -->
+            <rect x="56" y="156" width="48" height="40" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+            <line x1="64" y1="166" x2="96" y2="166" stroke="#e2e8f0" stroke-width="1.5"/>
+            <line x1="64" y1="174" x2="96" y2="174" stroke="#e2e8f0" stroke-width="1.5"/>
+            <line x1="64" y1="182" x2="88" y2="182" stroke="#e2e8f0" stroke-width="1.5"/>
+            <!-- Checkmarks -->
+            <path d="M 60 165 L 62 168 L 67 162" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 60 173 L 62 176 L 67 170" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="63" cy="182" r="3" fill="#e2e8f0"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Service 3: Trend Watching -->
+      <div class="svc-card">
+        <div class="svc-left">
+          <div class="svc-icon">🔭</div>
+          <h3 class="svc-title"><span class="en">Trend Watching</span><span class="ru">Мониторинг трендов</span></h3>
+          <p class="svc-desc"><span class="en">AI monitors news, competitors, pricing signals, and industry shifts 24/7 — delivering actionable briefs straight to your inbox every morning.</span><span class="ru">AI отслеживает новости, конкурентов, ценовые сигналы и отраслевые изменения 24/7 — ежедневно доставляя готовые выводы прямо к вам.</span></p>
+          <ul class="svc-list">
+            <li><span class="en">Competitor monitoring & alerts</span><span class="ru">Мониторинг конкурентов и оповещения</span></li>
+            <li><span class="en">Industry news digests</span><span class="ru">Дайджесты отраслевых новостей</span></li>
+            <li><span class="en">Price & demand signal tracking</span><span class="ru">Отслеживание ценовых и спросовых сигналов</span></li>
+            <li><span class="en">Opportunity briefings</span><span class="ru">Брифинги о возможностях</span></li>
+          </ul>
+        </div>
+        <!-- Character: impressed male looking at chart -->
+        <div class="svc-char">
+          <svg viewBox="0 0 160 210" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+            <ellipse cx="80" cy="204" rx="44" ry="7" fill="#0d948820"/>
+            <!-- Body — dark navy -->
+            <path d="M 28 148 Q 28 122 80 116 Q 132 122 132 148 L 140 210 L 20 210 Z" fill="#0f172a"/>
+            <path d="M 60 116 L 80 132 L 100 116 L 95 148 L 65 148 Z" fill="#f8fafc"/>
+            <polygon points="80,119 75,133 80,135 85,133" fill="#14b8a6"/>
+            <rect x="70" y="100" width="20" height="20" rx="6" fill="#FDBCB4"/>
+            <!-- Head -->
+            <ellipse cx="80" cy="70" rx="50" ry="54" fill="#FDBCB4"/>
+            <!-- Hair — dark wavy -->
+            <path d="M 30 60 Q 34 20 80 16 Q 126 20 130 60 Q 116 38 80 36 Q 44 38 30 60 Z" fill="#1a0a00"/>
+            <rect x="29" y="57" width="7" height="20" rx="3.5" fill="#1a0a00"/>
+            <rect x="124" y="57" width="7" height="20" rx="3.5" fill="#1a0a00"/>
+            <!-- Eyes — WIDE OPEN (amazed) -->
+            <ellipse cx="58" cy="66" rx="16" ry="18" fill="#fff"/>
+            <circle cx="58" cy="68" r="11" fill="#3d8c40"/>
+            <circle cx="58" cy="68" r="7"  fill="#0f2d10"/>
+            <circle cx="53" cy="62" r="5"  fill="#fff"/>
+            <circle cx="61" cy="70" r="2"  fill="#fff" opacity=".7"/>
+            <path d="M 42 50 Q 58 43 74 50" stroke="#1a0a00" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+            <ellipse cx="102" cy="66" rx="16" ry="18" fill="#fff"/>
+            <circle cx="102" cy="68" r="11" fill="#3d8c40"/>
+            <circle cx="102" cy="68" r="7"  fill="#0f2d10"/>
+            <circle cx="97" cy="62" r="5"  fill="#fff"/>
+            <circle cx="105" cy="70" r="2"  fill="#fff" opacity=".7"/>
+            <path d="M 86 50 Q 102 43 118 50" stroke="#1a0a00" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+            <!-- Eyebrows — raised high (amazed) -->
+            <path d="M 42 48 Q 58 38 74 48" stroke="#1a0a00" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 86 48 Q 102 38 118 48" stroke="#1a0a00" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+            <!-- Open mouth — amazed O -->
+            <ellipse cx="80" cy="100" rx="12" ry="10" fill="#1a0a00"/>
+            <ellipse cx="80" cy="101" rx="9"  ry="7"  fill="#c4435a"/>
+
+            <ellipse cx="44" cy="90" rx="10" ry="7" fill="#FF8FA3" opacity=".4"/>
+            <ellipse cx="116" cy="90" rx="10" ry="7" fill="#FF8FA3" opacity=".4"/>
+
+            <!-- Rising chart in hand area -->
+            <rect x="48" y="155" width="64" height="44" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+            <polyline points="56,188 66,178 76,182 86,166 96,160 104,155" stroke="#0d9488" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="104,150 110,158 98,158" fill="#0d9488"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Service 4: Mass Content Creation -->
+      <div class="svc-card">
+        <div class="svc-left">
+          <div class="svc-icon">✨</div>
+          <h3 class="svc-title"><span class="en">Mass Content Creation</span><span class="ru">Массовое создание контента</span></h3>
+          <p class="svc-desc"><span class="en">AI generates high-quality posts, articles, product descriptions, and marketing copy at scale — consistent with your brand voice, on every channel.</span><span class="ru">AI генерирует качественные посты, статьи, описания товаров и маркетинговые тексты в масштабе — в соответствии с голосом вашего бренда на всех каналах.</span></p>
+          <ul class="svc-list">
+            <li><span class="en">Social media post generation</span><span class="ru">Генерация постов для соцсетей</span></li>
+            <li><span class="en">SEO articles & blog content</span><span class="ru">SEO-статьи и контент для блога</span></li>
+            <li><span class="en">Product descriptions at scale</span><span class="ru">Описания товаров в масштабе</span></li>
+            <li><span class="en">Newsletter & email campaigns</span><span class="ru">Рассылки и email-кампании</span></li>
+          </ul>
+        </div>
+        <!-- Character: creative excited female -->
+        <div class="svc-char">
+          <svg viewBox="0 0 160 210" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+            <ellipse cx="80" cy="204" rx="44" ry="7" fill="#0d948820"/>
+            <!-- Body — warm coral/orange -->
+            <path d="M 28 148 Q 28 122 80 116 Q 132 122 132 148 L 140 210 L 20 210 Z" fill="#f97316"/>
+            <path d="M 60 116 L 80 132 L 100 116 L 95 148 L 65 148 Z" fill="#fff7ed"/>
+            <rect x="70" y="100" width="20" height="20" rx="6" fill="#f5c5a3"/>
+            <!-- Head -->
+            <ellipse cx="80" cy="70" rx="50" ry="54" fill="#f5c5a3"/>
+            <!-- Hair — curly/creative dark red -->
+            <ellipse cx="80" cy="28" rx="52" ry="26" fill="#6d2820"/>
+            <!-- Curls -->
+            <ellipse cx="32"  cy="52" rx="10" ry="12" fill="#6d2820"/>
+            <ellipse cx="128" cy="52" rx="10" ry="12" fill="#6d2820"/>
+            <ellipse cx="42"  cy="38" rx="9"  ry="11" fill="#6d2820"/>
+            <ellipse cx="118" cy="38" rx="9"  ry="11" fill="#6d2820"/>
+            <!-- Left eye — bright excited -->
+            <ellipse cx="60" cy="68" rx="14" ry="16" fill="#fff"/>
+            <path d="M 46 59 Q 60 51 74 59 Q 70 61 60 60 Q 50 61 46 59 Z" fill="#f5c5a3"/>
+            <circle cx="60" cy="72" r="10" fill="#6B3FA0"/>
+            <circle cx="60" cy="72" r="6.5" fill="#2d1a4e"/>
+            <circle cx="55" cy="66" r="4.5" fill="#fff"/>
+            <circle cx="63" cy="74" r="2" fill="#fff" opacity=".7"/>
+            <path d="M 46 59 Q 60 51 74 59" stroke="#3d2410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Right eye -->
+            <ellipse cx="100" cy="68" rx="14" ry="16" fill="#fff"/>
+            <path d="M 86 59 Q 100 51 114 59 Q 110 61 100 60 Q 90 61 86 59 Z" fill="#f5c5a3"/>
+            <circle cx="100" cy="72" r="10" fill="#6B3FA0"/>
+            <circle cx="100" cy="72" r="6.5" fill="#2d1a4e"/>
+            <circle cx="95" cy="66" r="4.5" fill="#fff"/>
+            <circle cx="103" cy="74" r="2" fill="#fff" opacity=".7"/>
+            <path d="M 86 59 Q 100 51 114 59" stroke="#3d2410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Eyebrows — expressive high -->
+            <path d="M 48 52 Q 60 43 72 51" stroke="#3d1810" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 88 51 Q 100 43 112 52" stroke="#3d1810" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Big grin -->
+            <path d="M 56 96 Q 80 118 104 96" fill="#FF6B7A" stroke="#c4435a" stroke-width="1.5"/>
+            <path d="M 58 96 Q 80 112 102 96 Q 99 106 80 107 Q 61 106 58 96 Z" fill="#fff"/>
+            <ellipse cx="46"  cy="92" rx="10" ry="7" fill="#FF8FA3" opacity=".45"/>
+            <ellipse cx="114" cy="92" rx="10" ry="7" fill="#FF8FA3" opacity=".45"/>
+            <!-- Content bubbles floating from hands -->
+            <!-- Post bubble left -->
+            <rect x="8"  y="145" width="36" height="28" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+            <rect x="13" y="150" width="26" height="3" rx="1.5" fill="#6B3FA0" opacity=".6"/>
+            <rect x="13" y="156" width="20" height="2.5" rx="1.2" fill="#94a3b8"/>
+            <rect x="13" y="161" width="22" height="2.5" rx="1.2" fill="#94a3b8" opacity=".7"/>
+            <!-- Post bubble right -->
+            <rect x="116" y="145" width="36" height="28" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+            <rect x="121" y="150" width="26" height="3" rx="1.5" fill="#f97316" opacity=".7"/>
+            <rect x="121" y="156" width="20" height="2.5" rx="1.2" fill="#94a3b8"/>
+            <rect x="121" y="161" width="22" height="2.5" rx="1.2" fill="#94a3b8" opacity=".7"/>
+            <!-- Stars of excitement -->
+            <text x="22"  y="140" font-size="12" fill="#f59e0b">★</text>
+            <text x="122" y="140" font-size="12" fill="#f59e0b">★</text>
+            <text x="70"  y="132" font-size="10" fill="#f59e0b">✦</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ INDUSTRIES ══════════════════════════════ -->
+<section id="industries">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">
+        <span class="en">Who We Serve</span><span class="ru">Кого мы обслуживаем</span>
+      </div>
+      <h2 class="section-title">
+        <span class="en">Built for These Sectors</span>
+        <span class="ru">Для этих отраслей</span>
+      </h2>
+      <p class="section-sub">
+        <span class="en">Built for professionals, not developers.</span>
+        <span class="ru">Создано для профессионалов, не для разработчиков.</span>
+      </p>
+    </div>
+
+    <div class="ind-grid">
+      <div class="ind-card">
+        <span class="ind-emoji">🏭</span>
+        <div class="ind-name"><span class="en">Industrial & Manufacturing</span><span class="ru">Промышленность</span></div>
+        <p class="ind-desc"><span class="en">SME manufacturers streamlining ops and supply chain</span><span class="ru">Производственные МСП: операции и цепочка поставок</span></p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-emoji">📊</span>
+        <div class="ind-name"><span class="en">Accounting Firms</span><span class="ru">Бухгалтерские фирмы</span></div>
+        <p class="ind-desc"><span class="en">Small & medium practices automating tax, compliance, and client intake. Reconcile 80,000+ bank records across bank entries, contracts, and invoices.</span><span class="ru">Малые и средние практики: налоги, соответствие, онбординг. Реконсиляция 80,000+ записей банка между выписками, договорами и счетами.</span></p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-emoji">⚖️</span>
+        <div class="ind-name"><span class="en">Law Firms</span><span class="ru">Юридические фирмы</span></div>
+        <p class="ind-desc"><span class="en">Medium-size practices cutting document workload and client communication</span><span class="ru">Средние практики: документооборот и коммуникация с клиентами</span></p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-emoji">🛒</span>
+        <div class="ind-name"><span class="en">E-commerce</span><span class="ru">E-commerce</span></div>
+        <p class="ind-desc"><span class="en">SME online retailers scaling content, CS automation and trend alerts</span><span class="ru">МСП онлайн-ритейлеры: контент, автоматизация CS и тренды</span></p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-emoji">🤝</span>
+        <div class="ind-name"><span class="en">Service Businesses</span><span class="ru">Сервисный бизнес</span></div>
+        <p class="ind-desc"><span class="en">Professional services firms growing without extra headcount</span><span class="ru">Профессиональные сервисные компании растут без найма</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ PROCESS ═════════════════════════════════ -->
+<section id="process">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">
+        <span class="en">How It Works</span><span class="ru">Как это работает</span>
+      </div>
+      <h2 class="section-title">
+        <span class="en">From Discovery to Live in Weeks</span>
+        <span class="ru">От знакомства до запуска — за недели</span>
+      </h2>
+      <p class="section-sub">
+        <span class="en">No lengthy enterprise contracts or months of waiting. We move fast and deliver real results.</span>
+        <span class="ru">Никаких долгих корпоративных контрактов и ожидания месяцами. Мы работаем быстро и даём реальные результаты.</span>
+      </p>
+    </div>
+
+    <div class="proc-grid">
+      <!-- Swiss Pulse animated track -->
+      <div class="proc-track" aria-hidden="true">
+        <svg viewBox="0 0 1000 8" preserveAspectRatio="none">
+          <path class="sp-proc-path-bg" d="M 80 4 H 920" stroke="#E5E4DE" stroke-width="1.5" fill="none"/>
+          <path class="sp-proc-path" d="M 80 4 H 920" />
+          <path class="sp-proc-path sp-accent-path" d="M 80 4 H 240" />
+        </svg>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">01</div>
+        <div class="step-title"><span class="en">Free Discovery Call</span><span class="ru">Бесплатный звонок</span></div>
+        <p class="step-desc"><span class="en">We map your current workflows, identify the biggest automation opportunities, and estimate ROI — no cost, no commitment.</span><span class="ru">Изучаем ваши процессы, находим точки автоматизации и считаем ROI — бесплатно и без обязательств.</span></p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">02</div>
+        <div class="step-title"><span class="en">Custom Audit & Plan</span><span class="ru">Аудит и план</span></div>
+        <p class="step-desc"><span class="en">Detailed automation audit with a prioritised roadmap tailored to your sector, tech stack, and team size.</span><span class="ru">Детальный аудит автоматизации с приоритетной дорожной картой под вашу отрасль, технологический стек и размер команды.</span></p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">03</div>
+        <div class="step-title"><span class="en">Build & Launch</span><span class="ru">Разработка и запуск</span></div>
+        <p class="step-desc"><span class="en">We build, test, and deploy your automations. First workflows go live within days, not months.</span><span class="ru">Строим, тестируем и запускаем автоматизации. Первые рабочие процессы запускаются за дни, не месяцы.</span></p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">04</div>
+        <div class="step-title"><span class="en">Train & Support</span><span class="ru">Обучение и поддержка</span></div>
+        <p class="step-desc"><span class="en">We train your team, monitor performance, and refine automations as your business evolves. Always on call.</span><span class="ru">Обучаем команду, следим за показателями и дорабатываем автоматизации по мере роста вашего бизнеса.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ RESULTS ═════════════════════════════════ -->
+<section id="results">
+  <div class="container">
+    <div class="res-grid">
+      <div class="res-item">
+        <div class="res-num"><span data-count="1.5">0.0</span>×</div>
+        <div class="res-label">
+          <strong><span class="en">Productivity</span><span class="ru">Продуктивность</span></strong>
+          <span><span class="en">Average staff output increase</span><span class="ru">Средний рост выработки</span></span>
+        </div>
+      </div>
+      <div class="res-item">
+        <div class="res-num"><span data-count="85">0</span>%</div>
+        <div class="res-label">
+          <strong><span class="en">Faster Processes</span><span class="ru">Скорость процессов</span></strong>
+          <span><span class="en">Reduction in manual processing time</span><span class="ru">Сокращение ручной обработки</span></span>
+        </div>
+      </div>
+      <div class="res-item">
+        <div class="res-num"><span data-count="90">0</span>%</div>
+        <div class="res-label">
+          <strong><span class="en">Fewer Errors</span><span class="ru">Меньше ошибок</span></strong>
+          <span><span class="en">Automated validation catches mistakes</span><span class="ru">Автоматическая валидация</span></span>
+        </div>
+      </div>
+      <div class="res-item">
+        <div class="res-num"><span data-count="10">0</span>×</div>
+        <div class="res-label">
+          <strong><span class="en">More Content</span><span class="ru">Больше контента</span></strong>
+          <span><span class="en">Published at the same cost</span><span class="ru">При тех же затратах</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ CTA ═════════════════════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <h2 class="cta-title">
+          <span class="en">Ready to Automate,<br>Scale, and Grow?</span>
+          <span class="ru">Готовы автоматизировать,<br>масштабировать и расти?</span>
+        </h2>
+        <p class="cta-sub">
+          <span class="en">Book a free 30-minute discovery call. We'll identify your three biggest automation opportunities and map out the ROI — no cost, no commitment.</span>
+          <span class="ru">Запишитесь на бесплатный 30-минутный звонок. Мы определим три главных возможности для автоматизации и рассчитаем ROI — бесплатно и без обязательств.</span>
+        </p>
+        <div class="cta-btns">
+          <a href="https://calendly.com/dmir017" target="_blank" class="btn btn-white">
+            📅 <span class="en">Book a Free Call</span><span class="ru">Записаться на звонок</span>
+          </a>
+          <a href="mailto:boris.korol@ai-automation.studio" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4);">
+            ✉️ <span class="en">Send an Email</span><span class="ru">Написать нам</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA Character: welcoming male -->
+      <div class="cta-char">
+        <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+          <ellipse cx="100" cy="273" rx="60" ry="9" fill="rgba(255,255,255,.1)"/>
+          <!-- Body -->
+          <path d="M 36 185 Q 36 152 100 144 Q 164 152 164 185 L 174 280 L 26 280 Z" fill="rgba(255,255,255,.12)"/>
+          <path d="M 76 144 L 100 162 L 124 144 L 118 185 L 82 185 Z" fill="rgba(255,255,255,.2)"/>
+          <!-- Tie -->
+          <polygon points="100,147 94,163 100,166 106,163" fill="#14b8a6"/>
+          <!-- Neck -->
+          <rect x="88" y="127" width="24" height="22" rx="7" fill="#f5c5a3"/>
+          <!-- Head -->
+          <ellipse cx="100" cy="90" rx="62" ry="67" fill="#f5c5a3"/>
+          <!-- Hair -->
+          <path d="M 38 78 Q 42 30 100 22 Q 158 30 162 78 Q 148 50 100 48 Q 52 50 38 78 Z" fill="#1a0a00"/>
+          <rect x="37" y="74" width="8" height="24" rx="4" fill="#1a0a00"/>
+          <rect x="155" y="74" width="8" height="24" rx="4" fill="#1a0a00"/>
+          <!-- Left eye -->
+          <ellipse cx="76" cy="86" rx="18" ry="20" fill="#fff"/>
+          <path d="M 58 74 Q 76 66 94 74 Q 90 76 76 75 Q 62 76 58 74 Z" fill="#f5c5a3"/>
+          <circle cx="76" cy="90" r="13" fill="#1a6b4a"/>
+          <circle cx="76" cy="90" r="8.5" fill="#0a2615"/>
+          <circle cx="71" cy="84" r="5.5" fill="#fff"/>
+          <circle cx="79" cy="93" r="2.5" fill="#fff" opacity=".7"/>
+          <path d="M 58 74 Q 76 66 94 74" stroke="#2d1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Right eye -->
+          <ellipse cx="124" cy="86" rx="18" ry="20" fill="#fff"/>
+          <path d="M 106 74 Q 124 66 142 74 Q 138 76 124 75 Q 110 76 106 74 Z" fill="#f5c5a3"/>
+          <circle cx="124" cy="90" r="13" fill="#1a6b4a"/>
+          <circle cx="124" cy="90" r="8.5" fill="#0a2615"/>
+          <circle cx="119" cy="84" r="5.5" fill="#fff"/>
+          <circle cx="127" cy="93" r="2.5" fill="#fff" opacity=".7"/>
+          <path d="M 106 74 Q 124 66 142 74" stroke="#2d1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Eyebrows -->
+          <path d="M 60 70 Q 76 61 92 70" stroke="#2d1a0e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 108 70 Q 124 61 140 70" stroke="#2d1a0e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Warm smile -->
+          <path d="M 72 118 Q 100 140 128 118" fill="#FF6B7A" stroke="#c4435a" stroke-width="1.5"/>
+          <path d="M 74 118 Q 100 136 126 118 Q 123 128 100 130 Q 77 128 74 118 Z" fill="#fff"/>
+          <ellipse cx="60"  cy="112" rx="12" ry="8" fill="#FF8FA3" opacity=".4"/>
+          <ellipse cx="140" cy="112" rx="12" ry="8" fill="#FF8FA3" opacity=".4"/>
+          <!-- Wave gesture (arms out welcoming) -->
+          <path d="M 38 188 Q 14 200 10 230" stroke="rgba(255,255,255,.2)" stroke-width="30" fill="none" stroke-linecap="round"/>
+          <path d="M 162 188 Q 186 200 190 230" stroke="rgba(255,255,255,.2)" stroke-width="30" fill="none" stroke-linecap="round"/>
+          <ellipse cx="10"  cy="232" rx="16" ry="11" fill="#f5c5a3"/>
+          <ellipse cx="190" cy="232" rx="16" ry="11" fill="#f5c5a3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="foot-logo">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+            <rect width="34" height="34" rx="9" fill="#0d9488"/>
+            <circle cx="17" cy="17" r="7" stroke="#fff" stroke-width="1.8" fill="none"/>
+            <path d="M17 10.5V7M17 27v-3.5M10.5 17H7M27 17h-3.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="17" cy="17" r="2.8" fill="#fff"/>
+          </svg>
+          AI Automation Studio
+        </a>
+        <p class="foot-tag">
+          <span class="en">Automate. Scale. Grow.</span>
+          <span class="ru">Автоматизируй. Масштабируй. Расти.</span>
+        </p>
+        <div class="foot-links">
+          <a href="#services"><span class="en">Services</span><span class="ru">Услуги</span></a>
+          <a href="#industries"><span class="en">Industries</span><span class="ru">Отрасли</span></a>
+          <a href="#process"><span class="en">Process</span><span class="ru">Процесс</span></a>
+        </div>
+      </div>
+      <div class="foot-contact">
+        <a href="https://calendly.com/dmir017" target="_blank">📅 <span class="en">Book a Call</span><span class="ru">Записаться на звонок</span></a>
+        <a href="mailto:boris.korol@ai-automation.studio">✉️ boris.korol@ai-automation.studio</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AI Automation Studio. <span class="en">All rights reserved.</span><span class="ru">Все права защищены.</span></span>
+      <span><span class="en">Built with AI</span><span class="ru">Создано с AI</span></span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════ JS ═══════════════════════════════════════ -->
+<script>
+  // Language toggle
+  let lang = 'en';
+
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('.en, .ru').forEach(el => {
+      el.style.display = el.classList.contains(l) ? '' : 'none';
+    });
+    document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    document.getElementById('btn-ru').classList.toggle('active', l === 'ru');
+    document.title = l === 'ru'
+      ? 'AI Automation Studio — Автоматизируй. Масштабируй. Расти.'
+      : 'AI Automation Studio — Automate. Scale. Grow.';
+    // Restart chat cycle so dialogues render in the new language
+    if (typeof window.__chatRestartForLang === 'function') window.__chatRestartForLang();
+  }
+
+  // Run on load to hide .ru spans by default
+  document.addEventListener('DOMContentLoaded', () => {
+    setLang('en');
+    // Safety fallback: only if GSAP totally fails (blocked CDN / JS error). 6s gives slow
+    // mobile networks time for the normal timeline + counter tween to complete first.
+    setTimeout(() => {
+      document.querySelectorAll('.sp-stat-num [data-count], .sp-loop-num[data-count]').forEach(el => {
+        const current = el.textContent.trim();
+        if (current === '0' || current === '0.0' || current === '') {
+          const target = parseFloat(el.dataset.count);
+          const decimals = (el.dataset.count.split('.')[1] || '').length;
+          el.textContent = target.toFixed(decimals);
+        }
+      });
+    }, 6000);
+  });
+
+  // Scroll shadow on nav
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Mobile menu (hamburger)
+  (() => {
+    const burger = document.getElementById('hamburger');
+    const menu   = document.getElementById('mobile-menu');
+    if (!burger || !menu) return;
+    const close = () => {
+      document.body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    };
+    const open = () => {
+      document.body.classList.add('nav-open');
+      burger.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    };
+    burger.addEventListener('click', () => {
+      document.body.classList.contains('nav-open') ? close() : open();
+    });
+    // Close on any menu-link click
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    // Close on Esc
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+<!-- ─── Agent chat cycle (Swiss Pulse hero visual) ─────────────── -->
+<script>
+(() => {
+  const DIALOGUES = [
+    {
+      topic: { en: 'Reconciliation', ru: 'Реконсиляция' },
+      client: {
+        en: 'Can you reconcile invoices, contracts and payments from last year?',
+        ru: 'Можешь мне сделать реконсиляцию счетов, договоров и платежей за прошлый год?'
+      },
+      agent: {
+        en: 'Yes, sure — where’s the data?',
+        ru: 'Да, конечно. Где у тебя лежат данные?'
+      }
+    },
+    {
+      topic: { en: 'Content ops', ru: 'Контент' },
+      client: {
+        en: 'Hey, I’ll send you a video — can you cut Reels with subtitles?',
+        ru: 'Привет, я дам тебе видео — можешь нарезать рилсы с субтитрами?'
+      },
+      agent: {
+        en: 'Yes. Share the drive link. Instagram or LinkedIn format? Translation needed?',
+        ru: 'Да, конечно. Дай ссылку на диск, где видео. Формат под Instagram или LinkedIn? Нужен перевод?'
+      }
+    },
+    {
+      topic: { en: 'Strategy', ru: 'Стратегия' },
+      client: {
+        en: 'Hi. Read the brief, deep-dive competitors and trends, then build a business plan and financial model.',
+        ru: 'Привет. Посмотри описание проекта, сделай глубокий анализ конкурентов и трендов, затем бизнес-план и финансовую модель.'
+      },
+      agent: {
+        en: 'On it. I’ll review and ask clarifying questions until I understand the project at 99%.',
+        ru: 'Конечно. Я посмотрю и задам уточняющие вопросы, пока не пойму проект на 99%.'
+      }
+    },
+    {
+      topic: { en: 'Finance · P&L', ru: 'Финансы · P&L' },
+      client: {
+        en: 'Hi, can you compare April P&L against the previous three months and analyse the trends?',
+        ru: 'Привет, можешь сравнить P&L за апрель и предыдущие три месяца и проанализировать тренды?'
+      },
+      agent: {
+        en: 'Done — refreshed the dashboard and dropped the report in the folder.',
+        ru: 'Да, обновил дэшборд и отчёт положил в папку.'
+      }
+    },
+    {
+      topic: { en: 'Competitor watch', ru: 'Конкуренты' },
+      client: {
+        en: 'Hi, monitor my 10 closest competitors — track their new products and services, plus customer comments on social.',
+        ru: 'Привет, регулярно смотри 10 моих ближайших конкурентов и отслеживай их новые продукты и услуги, а также комментарии клиентов в соцсетях.'
+      },
+      agent: {
+        en: 'I’ll send you a weekly brief by email.',
+        ru: 'Раз в неделю буду присылать тебе бриф на почту.'
+      }
+    }
+  ];
+
+  let dialogIdx = 0;
+  let timers = [];
+  let started = false;
+
+  const $feed = () => document.getElementById('sp-chat-feed');
+  const $num  = () => document.getElementById('sp-chat-num');
+  const $topic = () => document.getElementById('sp-chat-topic');
+
+  const sleep = (ms) => new Promise(r => {
+    const id = setTimeout(r, ms);
+    timers.push(id);
+  });
+
+  function clearTimers() {
+    timers.forEach(t => clearTimeout(t));
+    timers = [];
+  }
+
+  function makeMsg(side, label, text) {
+    const wrap = document.createElement('div');
+    wrap.className = `sp-msg sp-${side}`;
+    wrap.innerHTML =
+      `<div class="sp-msg-meta"><span class="sp-meta-mark"></span>${label}</div>` +
+      `<div class="sp-msg-bubble"></div>`;
+    wrap.querySelector('.sp-msg-bubble').textContent = text;
+    return wrap;
+  }
+
+  function makeTyping() {
+    const t = document.createElement('div');
+    t.className = 'sp-typing';
+    t.innerHTML = '<span class="sp-dot"></span><span class="sp-dot"></span><span class="sp-dot"></span>';
+    return t;
+  }
+
+  function pickReplyDelay(text) {
+    const len = (text || '').length;
+    return Math.max(1000, Math.min(2400, 600 + len * 16));
+  }
+
+  function currentLang() {
+    return (document.documentElement.lang || 'en').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+  }
+
+  async function showDialogue(i) {
+    const lang = currentLang();
+    const d = DIALOGUES[i];
+    const labels = lang === 'ru'
+      ? { client: 'Клиент', agent: 'AI · Агент' }
+      : { client: 'Client', agent: 'AI · Agent' };
+
+    const total = String(DIALOGUES.length).padStart(2, '0');
+    const num = String(i + 1).padStart(2, '0');
+    if ($num()) $num().textContent = `${num} / ${total}`;
+    if ($topic()) $topic().textContent = d.topic[lang];
+
+    const feed = $feed();
+    if (!feed) return;
+    feed.innerHTML = '';
+
+    const clientMsg = makeMsg('client', labels.client, d.client[lang]);
+    feed.appendChild(clientMsg);
+    await sleep(60);
+    clientMsg.classList.add('sp-show');
+
+    await sleep(700);
+    const typing = makeTyping();
+    feed.appendChild(typing);
+    await sleep(40);
+    typing.classList.add('sp-show');
+
+    await sleep(pickReplyDelay(d.agent[lang]));
+    typing.classList.remove('sp-show');
+    await sleep(220);
+    typing.remove();
+
+    const agentMsg = makeMsg('agent', labels.agent, d.agent[lang]);
+    feed.appendChild(agentMsg);
+    await sleep(50);
+    agentMsg.classList.add('sp-show');
+
+    await sleep(4500);
+    feed.querySelectorAll('.sp-msg').forEach(el => el.classList.remove('sp-show'));
+    await sleep(420);
+
+    dialogIdx = (dialogIdx + 1) % DIALOGUES.length;
+    showDialogue(dialogIdx);
+  }
+
+  function start() {
+    if (started) return;
+    started = true;
+    dialogIdx = 0;
+    showDialogue(0);
+  }
+  function restartForLang() {
+    // Cancel current cycle and restart from the first dialogue in the new language
+    clearTimers();
+    started = false;
+    dialogIdx = 0;
+    if ($feed()) start();
+  }
+
+  window.__chatStart = start;
+  window.__chatRestartForLang = restartForLang;
+})();
+</script>
+
+<!-- ─── Swiss Pulse choreography ─────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script defer>
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  window.addEventListener('load', () => {
+    if (!window.gsap) return;
+    const gsap = window.gsap;
+
+    // Native scroll — Lenis removed (felt sluggish on long page). ScrollTrigger uses window scroll.
+
+    // ── Prep underline draw ───────────────────────────────────────────
+    document.querySelectorAll('.sp-hero-title .sp-underline path').forEach(p => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+    });
+
+    // NOTE: prefers-reduced-motion no longer short-circuits the hero timeline.
+    // Hero entrance + counter rolls are short and light — same behaviour on mobile/desktop.
+
+    // ── Initial state ─────────────────────────────────────────────────
+    gsap.set('.sp-kicker', { opacity: 0, y: 14 });
+    gsap.set('.sp-hero-title .sp-word > span', { y: '110%' });
+    gsap.set('.sp-hero-sub', { opacity: 0, y: 20 });
+    gsap.set('.sp-hero-ctas .sp-btn', { opacity: 0, y: 18 });
+    gsap.set('.sp-hero-stats > div', { opacity: 0, y: 16 });
+
+    // ── Master timeline ───────────────────────────────────────────────
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
+
+    // Kicker
+    tl.to('.sp-kicker', { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0);
+
+    // Headline words — animate BOTH language variants (hidden lang is display:none, harmless)
+    tl.to('.sp-hero-title .sp-word > span', {
+      y: '0%', duration: 0.75, ease: 'expo.out', stagger: 0.09
+    }, 0.1);
+
+    // Underline draws (both lang variants) after accent word lands
+    tl.to('.sp-hero-title .sp-underline path', {
+      strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut'
+    }, 0.55);
+
+    // Sub
+    tl.to('.sp-hero-sub', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.55);
+
+    // CTAs
+    tl.to('.sp-hero-ctas .sp-btn', {
+      opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.08
+    }, 0.75);
+
+    // Stats (delayed last)
+    tl.to('.sp-hero-stats > div', {
+      opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.1
+    }, 0.95);
+
+    // Counter rolls — hero stats
+    document.querySelectorAll('.sp-stat-num [data-count]').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = (el.dataset.count.split('.')[1] || '').length;
+      const obj = { v: 0 };
+      tl.to(obj, {
+        v: target, duration: 1.4, ease: 'power3.out',
+        onUpdate: () => { el.textContent = obj.v.toFixed(decimals); }
+      }, 1.15);
+    });
+
+    // After timeline starts the chat cycle
+    tl.add(() => {
+      document.querySelector('.sp-hero-visual')?.classList.add('sp-anim-ready');
+      if (typeof window.__chatStart === 'function') window.__chatStart();
+    }, 1.4);
+
+    // ════════════════════════════════════════════════════════════════
+    // SCROLL-TRIGGERED ENTRANCES — Swiss Pulse
+    // ════════════════════════════════════════════════════════════════
+    if (window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Reveal helper — uses native IntersectionObserver instead of ScrollTrigger
+      // for entrance animations. More reliable on Playwright fullPage captures and on
+      // browsers where ScrollTrigger scroll proxy is finicky. Animation itself runs via GSAP.
+      const reveal = (selector, opts = {}) => {
+        const els = gsap.utils.toArray(selector);
+        if (!els.length) return;
+        const y = opts.y ?? 28;
+        const duration = opts.duration ?? 0.75;
+        const ease = opts.ease || 'power3.out';
+        const stagger = opts.stagger ?? 0.08;
+
+        // Set initial state for all
+        gsap.set(els, { opacity: 0, y });
+
+        // For ALREADY-VISIBLE elements (above the fold of initial viewport) — animate immediately
+        const vh = window.innerHeight;
+        const pending = [];
+        els.forEach((el, i) => {
+          const r = el.getBoundingClientRect();
+          if (r.top < vh && r.bottom > 0) {
+            gsap.to(el, {
+              opacity: 1, y: 0, duration, ease,
+              delay: 0.2 + stagger * (i % 8),
+              overwrite: 'auto',
+            });
+          } else {
+            pending.push(el);
+          }
+        });
+
+        if (!pending.length) return;
+
+        // For pending elements, observe entry via IntersectionObserver
+        let pendingIdx = 0;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              gsap.to(el, {
+                opacity: 1, y: 0, duration, ease,
+                delay: stagger * (pendingIdx % 8),
+                overwrite: 'auto',
+              });
+              pendingIdx++;
+              io.unobserve(el);
+            }
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+        pending.forEach(el => io.observe(el));
+      };
+
+      // Section heads
+      reveal('#pain .section-head > *, #services .section-head > *, #industries .section-head > *, #process .section-head > *, #cta .section-head > *', { stagger: 0.06 });
+
+      // Pain cards
+      reveal('.pain-card', { y: 36, stagger: 0.07 });
+
+      // Services cards
+      reveal('.svc-card', { y: 40, stagger: 0.1, duration: 0.8 });
+
+      // Industries cards
+      reveal('.ind-card', { y: 24, stagger: 0.06 });
+
+      // Process steps
+      reveal('.proc-step', { y: 30, stagger: 0.12 });
+
+      // Results numbers
+      reveal('#results .res-grid > *', { y: 24, stagger: 0.08 });
+
+      // CTA
+      reveal('.cta-box > *', { y: 22, stagger: 0.08 });
+
+      // ── Process timeline path draw (scrubs on scroll) ──
+      const procPath = document.querySelector('.proc-track .sp-proc-path:not(.sp-accent-path)');
+      const procAccent = document.querySelector('.proc-track .sp-accent-path');
+      if (procPath) {
+        const lenBase = procPath.getTotalLength();
+        procPath.style.strokeDasharray = lenBase;
+        procPath.style.strokeDashoffset = lenBase;
+        gsap.to(procPath, {
+          strokeDashoffset: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#process .proc-grid',
+            start: 'top 70%',
+            end: 'bottom 30%',
+            scrub: 0.6,
+          }
+        });
+      }
+      if (procAccent) {
+        const lenA = procAccent.getTotalLength();
+        procAccent.style.strokeDasharray = lenA;
+        procAccent.style.strokeDashoffset = lenA;
+        gsap.to(procAccent, {
+          strokeDashoffset: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#process .proc-grid',
+            start: 'top 70%',
+            end: 'center 50%',
+            scrub: 0.6,
+          }
+        });
+      }
+
+      // ── Counter rolls on results ──
+      document.querySelectorAll('#results [data-count]').forEach(el => {
+        const target = parseFloat(el.dataset.count);
+        const decimals = (el.dataset.count.split('.')[1] || '').length;
+        const obj = { v: 0 };
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            gsap.to(obj, {
+              v: target, duration: 1.4, ease: 'power3.out',
+              onUpdate: () => { el.textContent = obj.v.toFixed(decimals); }
+            });
+          }
+        });
+      });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

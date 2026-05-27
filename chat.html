@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Studio · Chat block prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sp-paper:    #FAFAF7;
+      --sp-ink:      #0A0A0A;
+      --sp-body:     #1F1F1D;
+      --sp-muted:    #6B6B68;
+      --sp-rule:     #E5E4DE;
+      --sp-accent:   #FF3D2E;
+      --sp-led:      #1FB95B;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Geist', -apple-system, system-ui, sans-serif;
+      background: var(--sp-paper);
+      color: var(--sp-ink);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 24px;
+    }
+
+    /* Chat container — fits hero visual slot (≤520px) */
+    .chat {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Header strip — kicker + lang pill */
+    .chat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--sp-rule);
+      margin-bottom: 22px;
+    }
+    .chat-kicker {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--sp-muted);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .chat-kicker .ck-dot {
+      width: 6px; height: 6px; background: var(--sp-accent);
+      display: inline-block;
+    }
+    .chat-kicker .ck-num { color: var(--sp-ink); font-weight: 500; }
+
+    .chat-live {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--sp-ink);
+    }
+    .chat-live .live-dot {
+      width: 6px; height: 6px; background: var(--sp-led);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(31,185,91,.55);
+      animation: live-pulse 2s ease-out infinite;
+    }
+    @keyframes live-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(31,185,91,.6); }
+      80% { box-shadow: 0 0 0 8px rgba(31,185,91,0); }
+      100% { box-shadow: 0 0 0 0 rgba(31,185,91,0); }
+    }
+
+    /* Conversation feed */
+    .chat-feed {
+      display: flex; flex-direction: column;
+      gap: 12px;
+      min-height: 320px;
+      position: relative;
+    }
+
+    .msg {
+      display: flex; flex-direction: column;
+      max-width: 86%;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .35s ease-out, transform .35s ease-out;
+    }
+    .msg.show { opacity: 1; transform: translateY(0); }
+
+    .msg-meta {
+      font-family: 'Geist Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--sp-muted);
+      margin-bottom: 4px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .msg-meta .meta-mark {
+      width: 5px; height: 5px;
+      background: var(--sp-muted);
+      display: inline-block;
+    }
+
+    .msg-bubble {
+      padding: 12px 16px;
+      font-family: 'Geist', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.45;
+      letter-spacing: -.005em;
+      border: 1px solid var(--sp-ink);
+      border-radius: 2px;
+    }
+
+    /* Client = right aligned, ink-filled */
+    .msg.client { align-self: flex-end; align-items: flex-end; }
+    .msg.client .msg-bubble {
+      background: var(--sp-ink);
+      color: var(--sp-paper);
+      border-color: var(--sp-ink);
+    }
+    .msg.client .msg-meta { justify-content: flex-end; }
+    .msg.client .meta-mark { background: var(--sp-ink); }
+
+    /* Agent = left aligned, paper bg + ink hairline */
+    .msg.agent { align-self: flex-start; align-items: flex-start; }
+    .msg.agent .msg-bubble {
+      background: var(--sp-paper);
+      color: var(--sp-ink);
+    }
+    .msg.agent .meta-mark { background: var(--sp-accent); }
+
+    /* Typing indicator */
+    .typing {
+      align-self: flex-start;
+      display: inline-flex; align-items: center;
+      padding: 14px 18px;
+      gap: 5px;
+      border: 1px solid var(--sp-ink);
+      border-radius: 2px;
+      background: var(--sp-paper);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .25s ease-out, transform .25s ease-out;
+    }
+    .typing.show { opacity: 1; transform: translateY(0); }
+    .typing .dot {
+      width: 6px; height: 6px;
+      background: var(--sp-ink);
+      border-radius: 50%;
+      animation: type-bob 1.2s ease-in-out infinite;
+    }
+    .typing .dot:nth-child(2) { animation-delay: .15s; }
+    .typing .dot:nth-child(3) { animation-delay: .3s; }
+    @keyframes type-bob {
+      0%, 100% { transform: translateY(0); opacity: .35; }
+      40% { transform: translateY(-3px); opacity: 1; }
+    }
+
+    /* Footer caption */
+    .chat-foot {
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid var(--sp-rule);
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--sp-muted);
+    }
+    .chat-foot .foot-step {
+      display: inline-flex; gap: 6px;
+    }
+    .chat-foot .step-pip {
+      width: 18px; height: 2px;
+      background: var(--sp-rule);
+      display: inline-block;
+      transition: background .35s ease;
+    }
+    .chat-foot .step-pip.on { background: var(--sp-ink); }
+
+    /* Lang toggle (prototype only) */
+    .lang-bar {
+      position: fixed; top: 16px; right: 16px;
+      display: flex; gap: 0;
+      border: 1px solid var(--sp-ink);
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+    }
+    .lang-bar button {
+      background: transparent; color: var(--sp-muted);
+      border: 0; padding: 6px 12px;
+      cursor: pointer;
+      font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    }
+    .lang-bar button.on { background: var(--sp-ink); color: var(--sp-paper); }
+  </style>
+</head>
+<body>
+
+  <div class="lang-bar">
+    <button id="lang-en" class="on">EN</button>
+    <button id="lang-ru">RU</button>
+  </div>
+
+  <div class="chat" id="chat" aria-live="polite">
+    <div class="chat-head">
+      <div class="chat-kicker">
+        <span class="ck-dot"></span>
+        <span class="ck-num" id="chat-num">01 / 03</span>
+        <span id="chat-topic">Reconciliation</span>
+      </div>
+      <div class="chat-live">
+        <span class="live-dot"></span>
+        <span>Live</span>
+      </div>
+    </div>
+
+    <div class="chat-feed" id="chat-feed"></div>
+  </div>
+
+  <script>
+    // ── Dialogue data ──────────────────────────────────────────────
+    const DIALOGUES = [
+      {
+        topic: { en: 'Reconciliation', ru: 'Реконсиляция' },
+        client: {
+          en: 'Can you reconcile invoices, contracts and payments from last year?',
+          ru: 'Можешь мне сделать реконсиляцию счетов, договоров и платежей за прошлый год?'
+        },
+        agent: {
+          en: 'Yes, sure — where’s the data?',
+          ru: 'Да, конечно. Где у тебя лежат данные?'
+        }
+      },
+      {
+        topic: { en: 'Content ops', ru: 'Контент' },
+        client: {
+          en: 'Hey, I’ll send you a video — can you cut Reels with subtitles?',
+          ru: 'Привет, я дам тебе видео — можешь нарезать рилсы с субтитрами?'
+        },
+        agent: {
+          en: 'Yes. Share the drive link. Instagram or LinkedIn format? Translation needed?',
+          ru: 'Да, конечно. Дай ссылку на диск, где видео. Формат под Instagram или LinkedIn? Нужен перевод?'
+        }
+      },
+      {
+        topic: { en: 'Strategy', ru: 'Стратегия' },
+        client: {
+          en: 'Hi. Read the brief, deep-dive competitors and trends, then build a business plan and financial model.',
+          ru: 'Привет. Посмотри описание проекта, сделай глубокий анализ конкурентов и трендов, затем бизнес-план и финансовую модель.'
+        },
+        agent: {
+          en: 'On it. I’ll review and ask clarifying questions until I understand the project at 99%.',
+          ru: 'Конечно. Я посмотрю и задам уточняющие вопросы, пока не пойму проект на 99%.'
+        }
+      },
+      {
+        topic: { en: 'Finance · P&L', ru: 'Финансы · P&L' },
+        client: {
+          en: 'Hi, can you compare April P&L against the previous three months and analyse the trends?',
+          ru: 'Привет, можешь сравнить P&L за апрель и предыдущие три месяца и проанализировать тренды?'
+        },
+        agent: {
+          en: 'Done — refreshed the dashboard and dropped the report in the folder.',
+          ru: 'Да, обновил дэшборд и отчёт положил в папку.'
+        }
+      },
+      {
+        topic: { en: 'Competitor watch', ru: 'Конкуренты' },
+        client: {
+          en: 'Hi, monitor my 10 closest competitors — track their new products and services, plus customer comments on social.',
+          ru: 'Привет, регулярно смотри 10 моих ближайших конкурентов и отслеживай их новые продукты и услуги, а также комментарии клиентов в соцсетях.'
+        },
+        agent: {
+          en: 'I’ll send you a weekly brief by email.',
+          ru: 'Раз в неделю буду присылать тебе бриф на почту.'
+        }
+      }
+    ];
+
+    // ── State ──────────────────────────────────────────────────────
+    let lang = 'en';
+    let dialogIdx = 0;
+    let cycleTimer = null;
+
+    const feed = document.getElementById('chat-feed');
+    const chatNum = document.getElementById('chat-num');
+    const chatTopic = document.getElementById('chat-topic');
+    const langBtns = { en: document.getElementById('lang-en'), ru: document.getElementById('lang-ru') };
+
+    // ── Helpers ────────────────────────────────────────────────────
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    function pickReplyDelay(text) {
+      // Roughly 18ms/char + 600ms base, capped 1.0..2.4s
+      const len = (text || '').length;
+      return Math.max(1000, Math.min(2400, 600 + len * 16));
+    }
+
+    function makeMsg(side, metaLabel, text) {
+      const wrap = document.createElement('div');
+      wrap.className = `msg ${side}`;
+      wrap.innerHTML = `
+        <div class="msg-meta"><span class="meta-mark"></span>${metaLabel}</div>
+        <div class="msg-bubble">${text}</div>
+      `;
+      return wrap;
+    }
+
+    function makeTyping() {
+      const t = document.createElement('div');
+      t.className = 'typing';
+      t.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+      return t;
+    }
+
+    function setLang(l) {
+      lang = l;
+      Object.entries(langBtns).forEach(([k, btn]) => btn.classList.toggle('on', k === l));
+      // restart cycle to re-render with new lang
+      cancelCycle();
+      dialogIdx = 0;
+      runCycle();
+    }
+
+    function cancelCycle() {
+      if (cycleTimer) { clearTimeout(cycleTimer); cycleTimer = null; }
+    }
+
+    async function showDialogue(i) {
+      const d = DIALOGUES[i];
+      const labels = lang === 'ru'
+        ? { client: 'Клиент', agent: 'AI · Агент' }
+        : { client: 'Client', agent: 'AI · Agent' };
+
+      // Update kicker
+      const total = String(DIALOGUES.length).padStart(2, '0');
+      const num = String(i + 1).padStart(2, '0');
+      chatNum.textContent = `${num} / ${total}`;
+      chatTopic.textContent = d.topic[lang];
+
+      // Clear feed
+      feed.innerHTML = '';
+
+      // 1. Client message slides in
+      const clientMsg = makeMsg('client', labels.client, d.client[lang]);
+      feed.appendChild(clientMsg);
+      await sleep(60);
+      clientMsg.classList.add('show');
+
+      // 2. Pause, then typing indicator
+      await sleep(700);
+      const typing = makeTyping();
+      feed.appendChild(typing);
+      await sleep(40);
+      typing.classList.add('show');
+
+      // 3. Typing thinks for a while proportional to reply length
+      const thinkTime = pickReplyDelay(d.agent[lang]);
+      await sleep(thinkTime);
+
+      // 4. Remove typing, show agent reply
+      typing.classList.remove('show');
+      await sleep(220);
+      typing.remove();
+
+      const agentMsg = makeMsg('agent', labels.agent, d.agent[lang]);
+      feed.appendChild(agentMsg);
+      await sleep(50);
+      agentMsg.classList.add('show');
+
+      // 5. Hold for reader, then continue cycle
+      const holdMs = 4200;
+      cycleTimer = setTimeout(() => {
+        // Fade out current chat then advance
+        feed.querySelectorAll('.msg').forEach(el => {
+          el.classList.remove('show');
+        });
+        cycleTimer = setTimeout(() => {
+          dialogIdx = (dialogIdx + 1) % DIALOGUES.length;
+          showDialogue(dialogIdx);
+        }, 420);
+      }, holdMs);
+    }
+
+    function runCycle() {
+      showDialogue(dialogIdx);
+    }
+
+    // Bindings
+    langBtns.en.addEventListener('click', () => setLang('en'));
+    langBtns.ru.addEventListener('click', () => setLang('ru'));
+
+    // Boot
+    runCycle();
+  </script>
+</body>
+</html>
