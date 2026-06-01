@@ -14,3 +14,10 @@ Production site `ai-automation.studio` is **not** changed by this repo.
 ## Pages setup
 
 Source: branch `main`, folder `/` (root `index.html`).
+
+## Partner links (booking)
+
+| Use | URL |
+|-----|-----|
+| **Branded (share anywhere)** | https://cal.ai-automation.studio/team/ai-automation-studio/discovery-call |
+| **Short via this preview** | https://bkproduct.github.io/aas-landing-variant-buhrecon-20260527-0948/call/ |
