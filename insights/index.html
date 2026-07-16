@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AAS Insights: AI Automation Case Studies and Articles | AI Automation Studio</title>
+  <meta name="description" content="AI Automation Studio insights, case studies, and articles on finance automation, AI agents, bank reconciliation, and UK accountancy workflow automation.">
+  <link rel="canonical" href="https://ai-automation.studio/insights/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AAS Insights: AI Automation Case Studies and Articles">
+  <meta property="og:description" content="Canonical AAS articles and case studies, plus selected syndicated copies on Medium and dev.to.">
+  <meta property="og:url" content="https://ai-automation.studio/insights/">
+  <meta property="og:image" content="https://ai-automation.studio/assets/finance-admin-vs-ai-agent-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:#FAFAF7;
+      --ink:#0A0A0A;
+      --body:#1F1F1D;
+      --muted:#66645f;
+      --rule:#E5E4DE;
+      --accent:#0d9488;
+      --red:#FF3D2E;
+      --soft:#f0fdfa;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family:Geist, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--body);
+      background:var(--paper);
+      line-height:1.65;
+    }
+    a { color:inherit; }
+    .container { width:min(100% - 40px, 1120px); margin:0 auto; }
+    .nav {
+      border-bottom:1px solid var(--rule);
+      background:rgba(250,250,247,.94);
+      backdrop-filter:blur(14px);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .nav-inner {
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:800;
+    }
+    .brand-mark {
+      width:34px;
+      height:34px;
+      border-radius:9px;
+      background:var(--accent);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .nav-links { display:flex; gap:24px; font-size:14px; font-weight:600; }
+    .nav-links a { text-decoration:none; color:var(--muted); }
+    .cta {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:10px 18px;
+      border-radius:8px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .hero {
+      padding:76px 0 44px;
+      background:#fff;
+      border-bottom:1px solid var(--rule);
+    }
+    .kicker {
+      font-family:"Geist Mono", monospace;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:16px;
+    }
+    h1 {
+      color:var(--ink);
+      font-size:clamp(42px, 7vw, 80px);
+      line-height:.98;
+      letter-spacing:0;
+      margin:0 0 20px;
+      max-width:980px;
+    }
+    .hero p {
+      max-width:780px;
+      color:var(--muted);
+      font-size:clamp(18px, 2vw, 23px);
+      line-height:1.45;
+      margin:0;
+    }
+    main { padding:58px 0 82px; }
+    .section-head {
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      align-items:end;
+      margin-bottom:26px;
+    }
+    h2 {
+      color:var(--ink);
+      font-size:clamp(28px, 4vw, 44px);
+      line-height:1.1;
+      margin:0;
+    }
+    .section-note {
+      max-width:430px;
+      color:var(--muted);
+      font-size:16px;
+      margin:0;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:24px;
+      margin-bottom:64px;
+    }
+    .card {
+      background:#fff;
+      border:1px solid var(--rule);
+      border-top:3px solid var(--red);
+      border-radius:5px;
+      padding:28px;
+      min-height:310px;
+      display:flex;
+      flex-direction:column;
+    }
+    .tag {
+      font-family:"Geist Mono", monospace;
+      font-size:11px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+    .metric {
+      color:var(--red);
+      font-size:42px;
+      font-weight:800;
+      line-height:1;
+      margin-bottom:12px;
+    }
+    .card h3 {
+      font-size:22px;
+      line-height:1.2;
+      margin:0 0 12px;
+      color:var(--ink);
+    }
+    .card p {
+      color:var(--muted);
+      font-size:16px;
+      margin:0 0 22px;
+    }
+    .card a {
+      margin-top:auto;
+      color:var(--red);
+      font-weight:800;
+      text-decoration:none;
+    }
+    .links {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:18px;
+      margin-bottom:62px;
+    }
+    .link-panel {
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:5px;
+      padding:24px;
+    }
+    .link-panel h3 {
+      margin:0 0 12px;
+      font-size:20px;
+      color:var(--ink);
+    }
+    .link-panel ul {
+      margin:0;
+      padding-left:20px;
+    }
+    .link-panel li {
+      margin:8px 0;
+      color:var(--muted);
+    }
+    .link-panel a {
+      color:var(--accent);
+      font-weight:700;
+    }
+    .queue {
+      background:var(--soft);
+      border:1px solid #ccefe7;
+      border-radius:5px;
+      padding:28px;
+    }
+    .queue h2 { font-size:30px; margin-bottom:12px; }
+    .queue ul { margin:12px 0 0; padding-left:20px; }
+    .queue li { margin:8px 0; }
+    footer {
+      border-top:1px solid var(--rule);
+      padding:36px 0;
+      background:#fff;
+      color:var(--muted);
+      font-size:14px;
+    }
+    @media (max-width: 900px) {
+      .nav-links { display:none; }
+      .section-head { display:block; }
+      .section-note { margin-top:12px; }
+      .grid, .links { grid-template-columns:1fr; }
+      .card { min-height:auto; }
+      .hero { padding-top:46px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "AAS Insights: AI Automation Case Studies and Articles",
+    "url": "https://ai-automation.studio/insights/",
+    "description": "AI Automation Studio insights, case studies, and articles on finance automation, AI agents, bank reconciliation, and UK accountancy workflow automation.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Automation Studio",
+      "url": "https://ai-automation.studio"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://ai-automation.studio/insights/part-time-finance-admin-vs-ai-agent-cost-uk/",
+          "name": "Part-Time Finance Admin vs AI Agent Cost in the UK"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://dev.to/boris_korol_7e8fc49c1d361/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-3ip",
+          "name": "dev.to syndicated copy of the finance admin vs AI agent article"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://medium.com/@Boris.Korol/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-eba85b7ec915",
+          "name": "Medium syndicated copy of the finance admin vs AI agent article"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">A</span>
+        <span>AI Automation Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/#industries">Industries</a>
+        <a href="/insights/">Insights</a>
+        <a href="/call/">Contact</a>
+      </div>
+      <a class="cta" href="https://cal.com/boris-korol-fpkpqk/discovery-call">Book a Call</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="kicker">AAS content hub</div>
+      <h1>AI automation case studies and articles</h1>
+      <p>Canonical AAS pages first, syndicated copies second. This hub keeps finance automation, AI agent ROI, bank reconciliation, and UK accountancy workflow content visible to search engines and answer engines.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="canonical">
+      <div class="section-head">
+        <h2 id="canonical">Canonical AAS articles</h2>
+        <p class="section-note">Owned pages are the source of truth for SEO/GEO. Off-site copies should point back here when the platform allows canonical URLs.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="tag">UK finance automation</div>
+          <div class="metric">60-75%</div>
+          <h3>Part-time finance admin vs AI agent cost</h3>
+          <p>A 2026 cost comparison for UK firms choosing between a 0.5 FTE finance administrator and a scoped AI finance agent.</p>
+          <a href="/insights/part-time-finance-admin-vs-ai-agent-cost-uk/">Read the canonical article →</a>
+        </article>
+        <article class="card">
+          <div class="tag">Bank reconciliation</div>
+          <div class="metric">18,000</div>
+          <h3>Unreconciled transactions cleared in 3 days</h3>
+          <p>A four-layer AI matching pipeline narrowed a three-year backlog to 100 items for human review.</p>
+          <a href="https://dev.to/boris_korol_7e8fc49c1d361/18000-unreconciled-transactions-three-years-of-backlog-heres-how-ai-cleared-it-in-3-days-31ji" rel="noopener">Read the published case study →</a>
+        </article>
+        <article class="card">
+          <div class="tag">Xero workflow automation</div>
+          <div class="metric">80,000+</div>
+          <h3>Bank records reconciled overnight</h3>
+          <p>A UK accountancy workflow using Make.com and the Xero API reduced two days of manual work to exceptions review.</p>
+          <a href="https://dev.to/boris_korol_7e8fc49c1d361/we-reconciled-80000-bank-records-overnight-heres-the-exact-workflow-56c7" rel="noopener">Read the published case study →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="syndication">
+      <div class="section-head">
+        <h2 id="syndication">Syndicated copies</h2>
+        <p class="section-note">These help off-site visibility while the AAS canonical article remains the primary URL.</p>
+      </div>
+      <div class="links">
+        <div class="link-panel">
+          <h3>Finance admin vs AI agent</h3>
+          <ul>
+            <li><a href="https://medium.com/@Boris.Korol/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-eba85b7ec915" rel="noopener">Medium version</a></li>
+            <li><a href="https://dev.to/boris_korol_7e8fc49c1d361/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-3ip" rel="noopener">dev.to version</a></li>
+          </ul>
+        </div>
+        <div class="link-panel">
+          <h3>More publishing surfaces</h3>
+          <ul>
+            <li><a href="https://ai-automation-studio.hashnode.dev" rel="noopener">AAS Hashnode archive</a></li>
+            <li><a href="https://medium.com/@Boris.Korol" rel="noopener">Boris Korol on Medium</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="queue" aria-labelledby="queue">
+      <h2 id="queue">Next article cluster</h2>
+      <p>Planned AAS topics for stronger topical authority around UK accountancy and finance automation:</p>
+      <ul>
+        <li>How to automate month-end close for a 50-person UK firm</li>
+        <li>Manual audit file preparation vs AI-assisted preparation</li>
+        <li>Off-the-shelf automation tools vs custom AI agents for UK firms</li>
+        <li>How to get cited by ChatGPT and Perplexity as a B2B services firm</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>AI Automation Studio</strong><br>
+      London-based AI automation consultancy for UK accountancy practices, audit firms, and finance teams.
+    </div>
+  </footer>
+</body>
+</html>

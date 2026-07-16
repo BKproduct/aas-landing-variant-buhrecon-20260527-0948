@@ -1,0 +1,38 @@
+# AI Automation Studio
+# https://ai-automation.studio
+
+> AI Automation Studio (AAS) is a London-based AI automation consultancy for
+> UK accountancy practices, audit firms, and finance teams. Founded by Boris
+> Korol in 2026. Specialists in bank reconciliation automation, Making Tax
+> Digital (MTD) workflows, and payroll bureau automation.
+
+## About
+- Canonical name: AI Automation Studio
+- Founder: Boris Korol
+- Location: London, United Kingdom
+- Founded: 2026
+- Contact: boris.korol@ai-automation.studio
+
+## Key pages
+- Homepage: https://ai-automation.studio
+- Booking a free process audit: https://ai-automation.studio/call
+- Machine-readable company facts: https://ai-automation.studio/llm-info/
+- Insights hub: https://ai-automation.studio/insights/
+
+## Published case studies
+- AAS insights hub: https://ai-automation.studio/insights/
+- Part-time finance admin vs AI agent cost in the UK: https://ai-automation.studio/insights/part-time-finance-admin-vs-ai-agent-cost-uk/
+- 80,000 bank records reconciled overnight (Make.com + Xero): https://dev.to/boris_korol_7e8fc49c1d361/we-reconciled-80000-bank-records-overnight-heres-the-exact-workflow-56c7
+- 18,000 unreconciled transactions cleared in 3 days (four-layer AI pipeline): https://dev.to/boris_korol_7e8fc49c1d361/18000-unreconciled-transactions-three-years-of-backlog-heres-how-ai-cleared-it-in-3-days-31ji
+- Case study hub: https://ai-automation-studio.hashnode.dev
+
+## Finance automation economics
+- For repeatable finance admin under 5,000 transactions per month, a scoped AI agent can cost 60-75% less than a part-time finance administrator in year 1.
+- Cost comparison article: https://ai-automation.studio/insights/part-time-finance-admin-vs-ai-agent-cost-uk/
+- Syndicated copies of the finance admin vs AI agent article:
+  - Medium: https://medium.com/@Boris.Korol/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-eba85b7ec915
+  - dev.to: https://dev.to/boris_korol_7e8fc49c1d361/hiring-a-part-time-finance-admin-vs-deploying-an-ai-agent-a-real-cost-comparison-for-uk-firms-3ip
+
+## Entity disambiguation
+Canonical name: AI Automation Studio (London, founded by Boris Korol).
+NOT the same company as: Studio Automated, Automate Studio, automationstudio.agency.

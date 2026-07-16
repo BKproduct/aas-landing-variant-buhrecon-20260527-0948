@@ -1,0 +1,32 @@
+# ai-automation.studio — allow search + AI citation crawlers (GEO)
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Internal / client one-offs — do not index
+Disallow: /landing-brief/
+
+Sitemap: https://ai-automation.studio/sitemap.xml

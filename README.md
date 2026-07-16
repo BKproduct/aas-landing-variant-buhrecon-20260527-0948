@@ -4,7 +4,19 @@
 
 **Repo:** https://github.com/BKproduct/aas-landing-variant-buhrecon-20260527-0948
 
-Production site `ai-automation.studio` is **not** changed by this repo.
+**Production:** https://ai-automation.studio — **Cloudflare Pages** project `ai-automation-studio` (not GitHub Pages).
+
+## Deploy to production
+
+```bash
+# one-time: legacy extras (privacy, landing-brief, favicon)
+git clone --depth 1 https://github.com/BKproduct/aas-landing-preview.git /tmp/aas-landing-preview
+
+set -a && source ~/.env && set +a
+./deploy-production.sh
+```
+
+Requires `CLOUDFLARE_API_TOKEN` in `~/.env`.
 
 ## What’s in this preview
 
@@ -19,5 +31,5 @@ Source: branch `main`, folder `/` (root `index.html`).
 
 | Use | URL |
 |-----|-----|
-| **Branded (share anywhere)** | https://cal.ai-automation.studio/team/ai-automation-studio/discovery-call |
+| **Branded (share anywhere)** | https://cal.com/boris-korol-fpkpqk/discovery-call |
 | **Short via this preview** | https://bkproduct.github.io/aas-landing-variant-buhrecon-20260527-0948/call/ |
