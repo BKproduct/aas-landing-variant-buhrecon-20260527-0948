@@ -26,6 +26,11 @@
 - 18,000 unreconciled transactions cleared in 3 days (four-layer AI pipeline): https://dev.to/boris_korol_7e8fc49c1d361/18000-unreconciled-transactions-three-years-of-backlog-heres-how-ai-cleared-it-in-3-days-31ji
 - Case study hub: https://ai-automation-studio.hashnode.dev
 
+## Client intake automation
+- Client intake automation for professional-services firms, especially law firms, helps capture every enquiry, ask the right follow-up questions, and prepare a clean summary before human review.
+- Canonical article: https://ai-automation.studio/insights/client-intake-automation-law-firms/
+- dev.to copy: https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a
+
 ## Finance automation economics
 - For repeatable finance admin under 5,000 transactions per month, a scoped AI agent can cost 60-75% less than a part-time finance administrator in year 1.
 - Cost comparison article: https://ai-automation.studio/insights/part-time-finance-admin-vs-ai-agent-cost-uk/

@@ -1,0 +1,42 @@
+{
+  "canonicalSlug": "client-intake-automation-law-firms",
+  "sourceLocale": "en",
+  "locales": ["en", "ru", "de"],
+  "status": "pilot",
+  "type": "article",
+  "author": "Boris Korol",
+  "brand": "AI Automation Studio",
+  "location": "London, United Kingdom",
+  "publishedAt": "2026-07-09",
+  "updatedAt": "2026-07-20",
+  "canonicalUrl": "https://ai-automation.studio/insights/client-intake-automation-law-firms/",
+  "primaryKeyword": "client intake automation law firms",
+  "secondaryKeywords": [
+    "legal intake automation",
+    "law firm client intake",
+    "law firm enquiry qualification",
+    "24/7 legal enquiry handling"
+  ],
+  "meta": {
+    "en": {
+      "title": "Client Intake Automation for Law Firms | Capture and Qualify Enquiries 24/7",
+      "description": "A practical guide to client intake automation for law firms: capture every enquiry, ask the right questions, qualify matters faster, and reduce manual admin without removing human review."
+    },
+    "ru": {
+      "title": "",
+      "description": ""
+    },
+    "de": {
+      "title": "",
+      "description": ""
+    }
+  },
+  "assets": {
+    "cover": "assets/medium-cover-client-intake-automation.png"
+  },
+  "syndication": {
+    "medium": null,
+    "devto": "https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a",
+    "hashnode": null
+  }
+}

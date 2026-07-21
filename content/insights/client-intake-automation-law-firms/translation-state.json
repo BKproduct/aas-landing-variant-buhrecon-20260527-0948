@@ -1,0 +1,523 @@
+{
+  "sourceLocale": "en",
+  "targetLocales": [
+    "ru",
+    "de"
+  ],
+  "status": {
+    "en": "source",
+    "ru": "missing",
+    "de": "missing"
+  },
+  "segments": {
+    "insights.client-intake-automation-law-firms.0001": {
+      "sourceHash": "sha256:cbfa1aeb5dd7326d32fc74b0b35e99305106f202b91563ee92b6ff41279682f2",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0002": {
+      "sourceHash": "sha256:0980333724fa57063303e8a6ec032e95f88356f287ff1797da39be053e64aaf8",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0003": {
+      "sourceHash": "sha256:c8d666d775298fb3aee7a72b7bfc2853731b768dc2fb24b74e62e606aa3e7535",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0004": {
+      "sourceHash": "sha256:d0b2940819ff556226429f2045201abe11719222993bbb7ea72ed9a0d00a32c8",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0005": {
+      "sourceHash": "sha256:52715c6e386cbb8c72003052914c2e19cf04d19f36f72bdec1d5e2d00cf7c2ad",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0006": {
+      "sourceHash": "sha256:291f0212b153a11a870da84072b16871da52998f2ac9c8edcfa27c603e384fba",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0007": {
+      "sourceHash": "sha256:fa2c9abd075ad582efcb69f30e21ca6b5b5097790822683b213393c4ccd883ea",
+      "type": "list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0008": {
+      "sourceHash": "sha256:7962a81ec74a6c1b47ed610bb601da8d70bcd7138224002b27f1d5f30e586536",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0009": {
+      "sourceHash": "sha256:56c36ea73d3894d23d55b584f5bca1f0c6364d29610211303af0ca106e7f1ac0",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0010": {
+      "sourceHash": "sha256:6d3ccf8af2640078a949ea2d1bae68c0e6ab51985d002668a480f7b72c8bb4df",
+      "type": "list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0011": {
+      "sourceHash": "sha256:9e2b0007bd19a32b965cb956de4ba8ed8f2a0e1756ec1cf9605d3747d8ef5a89",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0012": {
+      "sourceHash": "sha256:5890480e502bc9f86ede2300afffb6b0d433f2ccbf11639786b6097433103890",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0013": {
+      "sourceHash": "sha256:9a3204e6efda1479b1f128c06b1f9b68a2ae05a6742031406c7b63e2958f1df3",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0014": {
+      "sourceHash": "sha256:14578f426eefd63e2b73f3e07e05f6a349a1e30b256e88e173b12c828434ee64",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0015": {
+      "sourceHash": "sha256:12deac5e26561252d6d884f8883f1b0dad279345a404f1e97380102da747cafe",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0016": {
+      "sourceHash": "sha256:9e6f18643b5b797c1a4cfd69de80d129d473e0e65131e377fa483d8d376084c5",
+      "type": "list",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0017": {
+      "sourceHash": "sha256:79a03f5af0b974a78211b25a094e8bc56ce667e29aacdedb0bc6cd06ecd15404",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0018": {
+      "sourceHash": "sha256:dec9126107402efbe45a6c2ac0aba62c7c4d5c2a8ab71cfd7688afaff4c08191",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0019": {
+      "sourceHash": "sha256:dc9ccf53fb494ec2a8e4676819496a6ebe594e0911230917bf5d019ca8fc0c60",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0020": {
+      "sourceHash": "sha256:6a4f8659c4a372413832db7bac044831c028508e92b4e97593200e91379f3eb9",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0021": {
+      "sourceHash": "sha256:5e3a09d6784f2bfa68bcfc454a526991e2d55fb86fda39cc31aa30dedc6e8704",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0022": {
+      "sourceHash": "sha256:0d5fc2095c7f3d56f5535ebac6b0739dc91f23ab6192f91c97d39397c416a9e5",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0023": {
+      "sourceHash": "sha256:5b0e3c5f9a9e299a431125b53253ae6e490f60cadeb3b2bd81f7f4b581d2a016",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0024": {
+      "sourceHash": "sha256:1462360d161949c776b23ad44fedb6f82ef940958066a49eeccb0f4864d86c28",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0025": {
+      "sourceHash": "sha256:930d3090b6ef7c5707a22dd8f32388b2e1d8adf3c7efd3ea979c9a7d4f79dbfe",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0026": {
+      "sourceHash": "sha256:b3e0f5fb5ab36f2ae59a17493ae8e6d3386dca58bdb0b7eba6de0fb0c4c0cf9b",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0027": {
+      "sourceHash": "sha256:742f2fa144b6a7c0ea3aafe3fd59e778f63aa87b9b3e2b98f9b4d59f44aae879",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0028": {
+      "sourceHash": "sha256:46419649ab2a3a1d552cdfb6e1a4aebca15f21dc1bb7e0c8e62842a2d4eabbe7",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0029": {
+      "sourceHash": "sha256:30e29d4de4590d2dd1d84806c5f4f40167001da0ff7b631ed435dde758f1efe8",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0030": {
+      "sourceHash": "sha256:154312c3a79cd4926ddb9a8fd0f3fe0e6aea1fe07b3cbd1057e4b9cc351d0df6",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0031": {
+      "sourceHash": "sha256:55cc5ae6b3281e3341c848b32a9b3c3bde0964e3172bc2ab3a3c844cbd9d6e6d",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0032": {
+      "sourceHash": "sha256:b2ba79995cb98528a1ef0efe3f2f38d19826057f88b6831e40317101df6cdacf",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0033": {
+      "sourceHash": "sha256:53843d46a6d10482b1376abc72bdb867e39c96556c2993fbf54583102eec44ff",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0034": {
+      "sourceHash": "sha256:9b34c4608b6925728f895ea96047eb2f191e1e7578a8b11b72c4ca79480e178a",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0035": {
+      "sourceHash": "sha256:63db63c9bd1428d1f1fcfe3bc0e9c235f5c6aaaa16044fec5ce06f7b2cd26c2f",
+      "type": "table",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0036": {
+      "sourceHash": "sha256:3c14f62a06b1eae4297daefa1a21694a9fb3ff424e634975e6c5b7d6d8869c15",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0037": {
+      "sourceHash": "sha256:fd8c946de8d866bf065d672ab0fe70f84f74eced886356de2736cd59a2bf02ae",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0038": {
+      "sourceHash": "sha256:5d9e932f181f1673c3e6f07d5b3579045714e34d099bd1fa7c0dc211afd1efa5",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0039": {
+      "sourceHash": "sha256:5d3dbced992a349cc06258fb38ffe4ac9f14b91bdc8cfa83a9fe3c2e44575ef2",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0040": {
+      "sourceHash": "sha256:fe9157147e22fce2ebcd5b6950623af87de8f50ea482ce7570d6d0da1e712fa6",
+      "type": "ordered-list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0041": {
+      "sourceHash": "sha256:df32c9392dc548a6a604e856192c784f7d397f704d3fcf8d258318ba0452abe7",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0042": {
+      "sourceHash": "sha256:816e5dea9db011e055eabf6b640bcba698d8cb293b67f8a58d775565873d5dbd",
+      "type": "ordered-list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0043": {
+      "sourceHash": "sha256:ee4f86fa5c85f4742b7a2d0616f190e4e53b5a028a91677867fab736a3c48211",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0044": {
+      "sourceHash": "sha256:f1d9e1947ddb5b20033ab12148efabe12a05fe67036b2de44753239081982ad6",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0045": {
+      "sourceHash": "sha256:7edf12b013deee95eb758cabcb3cdc8c9bfd157a87640d02770f383581d3dfed",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0046": {
+      "sourceHash": "sha256:7d97ef5811fd6c57019c106dc771994ed54cc6833dbb169f6b0f702408263762",
+      "type": "table",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0047": {
+      "sourceHash": "sha256:baa85f06f70e5f86ac11612267a95f803c5cc731bd7e33d146dcdaea7b6e1bee",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0048": {
+      "sourceHash": "sha256:abc7045a0fe4eeec09abfa3a927f44b92d42997af315722ac06998229e00ee1f",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0049": {
+      "sourceHash": "sha256:b76ba0cb8f872ed81464dafb23ee1ee66809591304e05d0e153f7848a7c877c8",
+      "type": "list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0050": {
+      "sourceHash": "sha256:cac7d28ed0e7756300ff85ee986aa402c94c658d3abf2d0a133a5e9ed58d4a20",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0051": {
+      "sourceHash": "sha256:4e477c158fe46a303e6d80f14c846adbc4e64740c29efc03cc399dd727c3f261",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0052": {
+      "sourceHash": "sha256:93033a1a4bcc97289bca98c5000cfc66fcc356cda5f1f1faef4e63bfddf26472",
+      "type": "list",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0053": {
+      "sourceHash": "sha256:83649917e668a2ca7862332aed0907cd6b74b65569c114523cc3b3e7b3490b47",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0054": {
+      "sourceHash": "sha256:70038489bc7cf756334c693c6d7efb040314d8de0ca8e3043968eedb436b6ee6",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0055": {
+      "sourceHash": "sha256:66be4d940c13c5b3047f5dffc5b0bfc2e1d2c3054dc41de99d5a6b05d02865f8",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0056": {
+      "sourceHash": "sha256:6a326543ba2011d40e4b320f6e532819f27a2ac4113db7df3c57dfcdc1435996",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0057": {
+      "sourceHash": "sha256:b2e49d4a4b408666e83a0050bca934f346a631aace6d08c7b08df953077072d4",
+      "type": "list",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0058": {
+      "sourceHash": "sha256:831bf0f31f36bb5dc194d536f7c26b3b963277087803eace814b16ddaf421364",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0059": {
+      "sourceHash": "sha256:871cf4fe810b24f82bf99d26d0417d804c3d0c4426b49eab41e32bbe20e91196",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0060": {
+      "sourceHash": "sha256:4ffb6de18284946fb166a97b05faff5d587cfcdcfe9be1a1651ea8b2329c75ef",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0061": {
+      "sourceHash": "sha256:2aece760ce16a64ac28b3a39bfbabc7914fb5a07e2ee6f8af12901eebdb82da7",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0062": {
+      "sourceHash": "sha256:5238285898b2a9bad315aeedd95c03b99ae41cdfac8a102136e30277bc5c0f45",
+      "type": "list",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0063": {
+      "sourceHash": "sha256:20cbd6ab0c7a44d45c63fffae6ccc2789061a5e293821c70c41f179ccc9089a2",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0064": {
+      "sourceHash": "sha256:b07ed55203f0d88ebed77a69ea750333f4f62ec38193b32272aa2987376f7b86",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0065": {
+      "sourceHash": "sha256:ff39bbae6391aed8a15c6b651ba7205052778c3bab6a7e2208d2363329b0d22b",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0066": {
+      "sourceHash": "sha256:c00f303191ca6d7f1841869bb8fbd0f5abe6eb825f7dd58cc0bbcf6e03ca1418",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0067": {
+      "sourceHash": "sha256:37081b6426b045549135e9d2583cf1fbe32a8f9cac25941b435174c3a16d97a1",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0068": {
+      "sourceHash": "sha256:42f8be1fa75b4f8b189349b6b5df6408aab19522db5b836f7f6677245b64a6d5",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0069": {
+      "sourceHash": "sha256:aa382e77cd8bc11b6e84588cef8ffab1575895266581635388f1986794163b57",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0070": {
+      "sourceHash": "sha256:476631a16b5120334690959375b38c5c9bff7a79d2b96892216b6a87b207da38",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0071": {
+      "sourceHash": "sha256:3e712ff24e4935fb972284838bd1160ad0969f81ae3b53a6780ba3628a97bfbb",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0072": {
+      "sourceHash": "sha256:a8da94773fc1f5e8795cf59e1856ff0dd94aecc8a4db00fbb704a6f26d19a5ca",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0073": {
+      "sourceHash": "sha256:6eec9c10fa045f0a9c1b4e8b0b1362482bf1e2c46d7a3441406d7c2c515e3d71",
+      "type": "heading",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0074": {
+      "sourceHash": "sha256:72a37f715c236af03bb228a83d3e5f2cbe3d8722c7d6eb350626f7076fba685a",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0075": {
+      "sourceHash": "sha256:56c38a2cac8ab5d9b29389df0f39b07828d3db70c76cceae6803390c1c929382",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0076": {
+      "sourceHash": "sha256:1fc41194a710c3846a96c0999b33b8aa9994e243270d306fcf6dd5fe7dee989f",
+      "type": "paragraph",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0077": {
+      "sourceHash": "sha256:9c915168d2ed5c710f0bc0a1a16f94715026b7596953e35b624fbb29cecb5a3b",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0078": {
+      "sourceHash": "sha256:67c3bc33cd61e1b316eb1b501b684b4760dc28a8983d602cbd0afde61723cfd4",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0079": {
+      "sourceHash": "sha256:5300a11c6c7354e083f7ebaa87d8ee597c345a362b1553d7ffddbad4d56524ac",
+      "type": "paragraph",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0080": {
+      "sourceHash": "sha256:4b86221f779048f527043c47a7ab8af0455f8af0b04eeb3b20e527f8a48adff3",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0081": {
+      "sourceHash": "sha256:cadc754feb4ebae8f45a6b034eae53ab8486861de2890fa739c91b6f47ec89d2",
+      "type": "list",
+      "risk": "review",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0082": {
+      "sourceHash": "sha256:263b71db3f164655403833d20a6433bd2126d67ab3c6c7c4167a983824700829",
+      "type": "heading",
+      "risk": "normal",
+      "status": "source"
+    },
+    "insights.client-intake-automation-law-firms.0083": {
+      "sourceHash": "sha256:299638b83b635283f9cc871af71fbe97d83c081c35a62618f89bbe5de5d8a8eb",
+      "type": "list",
+      "risk": "normal",
+      "status": "source"
+    }
+  },
+  "lastInventoryAt": null,
+  "lastExtractionAt": "2026-07-21T16:17:35.036Z",
+  "lastValidationAt": null,
+  "toolchain": {
+    "segmenter": "aas-static-i18n/scripts/i18n/extract-segments.mjs",
+    "translationMemory": "reference/swiss-pulse-lab/i18n/translation-memory.json",
+    "mtBaseline": null,
+    "postEditor": null
+  },
+  "sourceHash": "sha256:f23aa23f28c74e72be5883c03fe99595ca37f420584d28af9e4e0d67674ad62b",
+  "segmentCount": 83
+}

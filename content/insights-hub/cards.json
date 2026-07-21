@@ -1,0 +1,22 @@
+{
+  "cards": [
+    {
+      "slug": "part-time-finance-admin-vs-ai-agent-cost-uk",
+      "route": "/insights/part-time-finance-admin-vs-ai-agent-cost-uk/",
+      "metric": "60–75%",
+      "articleLocales": ["en"]
+    },
+    {
+      "slug": "client-intake-automation-law-firms",
+      "route": "/insights/client-intake-automation-law-firms/",
+      "metric": "24/7",
+      "articleLocales": ["en"]
+    },
+    {
+      "slug": "lead-qualification-routing-automation-law-firms",
+      "route": "https://medium.com/@Boris.Korol/lead-qualification-and-routing-automation-4a81d1edf468",
+      "metric": "No leaks",
+      "articleLocales": ["en"]
+    }
+  ]
+}

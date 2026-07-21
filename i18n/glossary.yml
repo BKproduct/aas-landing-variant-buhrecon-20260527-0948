@@ -1,0 +1,38 @@
+# AAS localization glossary.
+# Locked terms must remain exactly as defined unless the business owner changes this file.
+terms:
+  AI Automation Studio:
+    en: AI Automation Studio
+    ru: AI Automation Studio
+    de: AI Automation Studio
+    locked: true
+  AAS:
+    en: AAS
+    ru: AAS
+    de: AAS
+    locked: true
+  Boris Korol:
+    en: Boris Korol
+    ru: Boris Korol
+    de: Boris Korol
+    locked: true
+  Process Audit:
+    en: Process Audit
+    ru: Process Audit
+    de: Process Audit
+    note: Service/package name. Keep English until a deliberate brand decision is made.
+  AI-readiness Workshop:
+    en: AI-readiness Workshop
+    ru: AI-readiness Workshop
+    de: AI-readiness Workshop
+    note: Current site voice keeps this as a service name.
+  workflow:
+    en: workflow
+    ru: workflow
+    de: Workflow
+    note: AAS Russian currently tolerates selected English technical terms.
+  client intake automation:
+    en: client intake automation
+    ru: автоматизация первичного приёма клиентов
+    de: Automatisierung der Mandantenaufnahme
+    note: German should stay natural and not over-compound.

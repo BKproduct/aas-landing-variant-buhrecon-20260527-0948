@@ -1,10 +1,14 @@
-# AAS landing — preview variant (GTM redesign WIP)
+# AAS landing — production source
 
-**Preview (GitHub Pages):** https://bkproduct.github.io/aas-landing-variant-buhrecon-20260527-0948/
+**Legacy GitHub Pages preview:** https://bkproduct.github.io/aas-landing-variant-buhrecon-20260527-0948/
+It is retained for reference only. Do not use it as the public AAS website.
 
 **Repo:** https://github.com/BKproduct/aas-landing-variant-buhrecon-20260527-0948
 
 **Production:** https://ai-automation.studio — **Cloudflare Pages** project `ai-automation-studio` (not GitHub Pages).
+
+The pre-localization production source is preserved by the Git tag
+`legacy-production-before-i18n-2026-07-21`. See [archive/README.md](archive/README.md).
 
 ## Deploy to production
 

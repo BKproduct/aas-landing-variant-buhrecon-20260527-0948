@@ -1,0 +1,14 @@
+{
+  "name": "aas-static-i18n",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "i18n:inventory": "node scripts/i18n/inventory.mjs",
+    "i18n:extract": "node scripts/i18n/extract-segments.mjs",
+    "i18n:translate": "node scripts/i18n/translate-content.mjs",
+    "i18n:validate": "node scripts/i18n/validate-content.mjs",
+    "i18n:render": "node scripts/i18n/render-static.mjs",
+    "i18n:validate-hubs": "node scripts/i18n/validate-insights-hubs.mjs",
+    "i18n:check": "npm run i18n:inventory && npm run i18n:extract && npm run i18n:validate && npm run i18n:render && npm run i18n:validate-hubs"
+  }
+}

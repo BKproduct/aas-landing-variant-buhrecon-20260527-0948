@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-# Deploy swiss-pulse-lab → Cloudflare Pages (ai-automation.studio)
+# Deploy swiss-pulse-lab copy to Cloudflare Pages preview branch.
+# This does not deploy to the production branch/domain.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 LEG="${AAS_LEGACY_STATIC:-/tmp/aas-landing-preview}"
-DEPLOY="${TMPDIR:-/tmp}/cf-aas-deploy-$$"
+DEPLOY="${TMPDIR:-/tmp}/cf-aas-dev-deploy-$$"
+BRANCH="${AAS_DEV_BRANCH:-dev}"
 
 if [[ ! -d "$LEG/landing-brief" ]]; then
   echo "Clone legacy static extras first:"
@@ -33,21 +35,21 @@ cp "$ROOT/favicon.svg" "$DEPLOY/"
 cp "$ROOT/favicon.ico" "$DEPLOY/"
 cp -R "$LEG/landing-brief" "$DEPLOY/"
 {
+  printf '/ru\t/ru/\t301\n'
+  printf '/de\t/de/\t301\n'
   printf '/call\t/call/\t301\n'
   printf '/cases/\t/#case-studies\t301\n'
   printf '/ru/cases/\t/ru/#case-studies\t301\n'
   printf '/de/cases/\t/de/#case-studies\t301\n'
 } > "$DEPLOY/_redirects"
 
-# Promote the reviewed static locale build, using production canonical URLs and indexable pages.
-AAS_NO_INDEX=false AAS_DEV_BASE_URL=https://ai-automation.studio node "$ROOT/scripts/dev-overlay.mjs" "$DEPLOY"
-node "$ROOT/scripts/i18n/render-production-sitemap.mjs" "$DEPLOY"
+node "$ROOT/scripts/dev-overlay.mjs" "$DEPLOY"
 
 SHA="$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo manual)"
 npx wrangler pages deploy "$DEPLOY" \
   --project-name=ai-automation-studio \
-  --branch=main \
-  --commit-message="deploy: swiss-pulse-lab ${SHA}"
+  --branch="$BRANCH" \
+  --commit-message="deploy: swiss-pulse-lab dev ${SHA}"
 
 rm -rf "$DEPLOY"
-echo "Live: https://ai-automation.studio/"
+echo "Dev preview branch: ${BRANCH}"

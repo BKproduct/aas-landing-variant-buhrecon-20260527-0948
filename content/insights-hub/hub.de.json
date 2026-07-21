@@ -1,0 +1,13 @@
+{
+  "seo": { "title": "KI-Automatisierungs-Insights | AI Automation Studio", "description": "Praxisnahe Perspektiven zur KI-Automatisierung für Finanzen, Mandantenaufnahme und operative Abläufe." },
+  "nav": { "services": "Leistungen", "cases": "Cases", "insights": "Insights", "contact": "Kontakt", "cta": "Termin buchen" },
+  "hero": { "kicker": "AAS Insights", "title": "Praxiswissen zur KI-Automatisierung", "description": "Klare, praxiserprobte Ansätze für Teams, die Finanzprozesse, Mandantenaufnahme und operative Abläufe verbessern wollen." },
+  "library": { "title": "Unser Ansatz für Automatisierung", "description": "Automatisierung schafft Wirkung, wenn sie ein konkretes Problem des Teams löst und Menschen bei wichtigen Entscheidungen die Kontrolle lässt." },
+  "approach": { "title": "Erst Nutzen, dann Skalierung", "description": "Wir beginnen mit einem echten Engpass: wiederkehrender Arbeit, langsamen Übergaben oder verpassten Anfragen. Danach machen wir die Wirkung messbar und entwickeln die Lösung weiter.", "points": ["Starten Sie mit einem Ablauf, den Ihr Team bereits gut kennt.", "Legen Sie eine Ausgangsbasis für Zeit, Qualität und Ausnahmen fest.", "Gestalten Sie den menschlichen Prüfpfad vor der Skalierung."] },
+  "cardCopy": {
+    "part-time-finance-admin-vs-ai-agent-cost-uk": { "tag": "Finanzautomatisierung im Vereinigten Königreich", "metric": "60–75%", "title": "Teilzeit-Finanzassistenz oder KI-Agent: Kostenvergleich", "summary": "Ein Kostenvergleich für 2026 für britische Unternehmen, die zwischen einer Finanzassistenz mit 0,5 FTE und einem klar abgegrenzten KI-Agenten für wiederkehrende Finanzaufgaben wählen.", "cta": "Artikel lesen →", "availableInEnglish": "Artikel auf Englisch verfügbar" },
+    "client-intake-automation-law-firms": { "tag": "Mandantenaufnahme in Professional Services", "metric": "24/7", "title": "Automatisierung der Mandantenaufnahme für Kanzleien", "summary": "Ein praxisnaher Leitfaden, um jede Anfrage zu erfassen, die richtigen Rückfragen zu stellen und Vorgänge vor der menschlichen Prüfung sauber weiterzuleiten.", "cta": "Artikel lesen →", "availableInEnglish": "Artikel auf Englisch verfügbar" },
+    "lead-qualification-routing-automation-law-firms": { "tag": "Wachstumsprozesse", "metric": "Keine Verluste", "title": "Automatisierung von Lead-Qualifizierung und Routing", "summary": "Wie eingehende Anfragen qualifiziert und wertvolle Chancen ohne Verzögerung der richtigen Person zugeordnet werden.", "cta": "Artikel lesen →", "availableInEnglish": "Artikel auf Englisch verfügbar" }
+  },
+  "footer": "Londoner KI-Automatisierungsberatung für britische Accounting-Praxen, Audit-Firmen und Finanzteams."
+}

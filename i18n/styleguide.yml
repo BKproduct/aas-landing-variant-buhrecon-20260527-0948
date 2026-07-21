@@ -1,0 +1,33 @@
+locales:
+  en:
+    name: English
+    voice:
+      - Precise, understated, commercially useful.
+      - UK professional-services context.
+      - Avoid hype and unsupported claims.
+  ru:
+    name: Russian
+    voice:
+      - Natural business Russian, not bureaucratic.
+      - Keep selected English technical terms where the glossary says so.
+      - Preserve caveats and human-review boundaries.
+  de:
+    name: German
+    voice:
+      - Clear business German.
+      - Use formal Sie when addressing the reader.
+      - Prefer natural phrasing over long literal compounds.
+      - Preserve legal/finance caveats exactly.
+translation_policy:
+  source_locale: en
+  target_locales:
+    - ru
+    - de
+  default_status: needs_review
+  publish_requires:
+    - schema_valid
+    - locale_complete
+    - placeholders_preserved
+    - language_matches_target
+    - seo_metadata_present
+    - no_unreviewed_high_risk_claims
