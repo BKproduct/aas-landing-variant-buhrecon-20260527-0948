@@ -2974,5 +2974,17 @@
   });
 </script>
 
+<script>
+  // The GitHub Pages URL is a retained historical preview, not the public site.
+  if (window.location.hostname.endsWith('github.io')) {
+    var legacyNotice = document.createElement('a');
+    legacyNotice.href = 'https://ai-automation.studio/';
+    legacyNotice.textContent = 'Legacy preview — visit the current AAS website →';
+    legacyNotice.setAttribute('aria-label', 'Legacy preview. Visit the current AI Automation Studio website.');
+    legacyNotice.style.cssText = 'position:fixed;z-index:9999;right:16px;bottom:16px;max-width:calc(100vw - 32px);padding:12px 16px;background:#0a0a0a;color:#fff;border:1px solid #ff3d2e;font:600 13px/1.35 Arial,sans-serif;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2)';
+    document.body.appendChild(legacyNotice);
+  }
+</script>
+
 </body>
 </html>
