@@ -1,0 +1,77 @@
+Drafting workflow automation for fee-earners: what gets prepared before review
+
+The blank page has excellent public relations. It suggests care, diligence and the quiet birth of a great idea.
+
+In a professional-services firm, it more often means somebody is about to spend an expensive hour looking for dates they have already read twice.
+
+That is not where legal, financial or advisory judgement lives. It is where it waits.
+
+Law firms know the ritual. A client needs an update. A fee-earner opens the case-management system, then the inbox, then the attachments, then last month’s letter. The first draft is assembled from facts scattered across several places. Only after this archaeology can the person who actually knows what matters start thinking.
+
+Accountants, recruiters, insurers, consultancies and outsourced operations teams have their own version of the same scene. Different documents; same tax on attention.
+
+Drafting workflow automation is not a machine that “does the professional work”. It is a controlled process that reads approved case materials, extracts relevant facts and prepares a structured first draft of a letter, summary, document or client update. A qualified human still checks the facts, applies judgement and approves the final version.
+
+The problem is rarely writing. It is reassembly.
+
+Many firms already have templates, precedents, style guides and people who know the work. Yet the route from request to first draft is still clogged with small acts of retrieval: finding the current facts across correspondence, notes and attachments; checking names, dates and deadlines; choosing the right structure; turning the file into a chronology; spotting what is missing before a reviewer spots it later.
+
+None of this is trivial. Nor is it usually the point of hiring an experienced fee-earner.
+
+The cost is not only time. A poor first pass makes the reviewer reconstruct the file before they can test the advice, risk or tone. The business pays senior rates for a document clean-up exercise. The client gets the update later than they should.
+
+What a drafting workflow actually does
+
+A sensible workflow starts with limits. It reads only an agreed source set. It handles one known document type. It uses an approved template. It stops when the material is incomplete or unclear.
+
+Within those limits, it can gather case materials, pull out basic facts, arrange a chronology, select the right structure and prepare a first draft. It can also flag an inconsistency or an unanswered question for human attention rather than inventing an answer.
+
+The result is not a finished legal opinion or an unattended client communication. It is a better starting point: a draft, its source context and a short review checklist in the hands of the person who must decide whether it is right.
+
+A good drafting workflow does not take judgement out of a firm. It takes the scavenger hunt out of judgement, leaving the reviewer to decide what the facts mean, what the client needs and what should happen next.
+
+What stays with the professional
+
+The workflow can collect approved materials, extract routine facts, create an outline, apply an approved template and assemble a draft. It can check whether the usual sections are present. It can highlight a gap.
+
+The professional must decide which facts matter, whether the sources are complete, what advice is appropriate, how much risk the client should take and whether the document is ready to send. Final approval stays with a human. So do exceptions, sensitive matters and anything that does not fit the defined pattern.
+
+That distinction is not a disclaimer tacked onto the end of the project. It is the design principle. If a workflow cannot tell where its knowledge ends, it is not ready to touch a client document.
+
+The before-and-after is more mundane than the sales pitch—and more useful
+
+Before automation, a request arrives and the drafting person begins the familiar relay race. They search the file, locate the latest correspondence, open a prior document, copy the structure, reconstruct the chronology and draft around the gaps. The reviewer receives a document that may be coherent, but must still check both the argument and the scaffolding.
+
+After automation, the request starts a defined workflow. It pulls material from permitted sources, organises the core facts, applies the approved structure and produces a draft with unresolved points clearly marked. The reviewer checks the factual basis, makes the substantive decisions, reshapes the tone and signs off.
+
+The point is not a miraculous document appearing from nowhere. The point is that the first useful draft arrives without making an experienced person spend an hour as a search engine.
+
+Start where the documents repeat
+
+The best first project is rarely the most impressive one. It is the document that appears often enough to be annoying, follows a stable enough pattern to be designed, and still needs a human at the end.
+
+For a law firm, that could be a client update, attendance-note summary, case chronology, standard letter or internal matter handover. For an accountancy or advisory firm, it could be an engagement document, client report, proposal, follow-up letter or meeting summary. In recruitment or claims operations, it could be a candidate brief, case note or status update.
+
+The controls are the product
+
+Before building, a firm should decide which systems and documents the workflow may read, who may trigger it, what template it may use and what must be checked before approval. It should define stop conditions for conflicting information, missing facts, sensitive matters and unusual instructions. It should retain an appropriate record of review and sign-off.
+
+The best rule is also the least glamorous: when the workflow cannot identify a fact confidently from an approved source, it should flag the question. Plausible filler is not a feature.
+
+What a claimed 2× result must mean
+
+“2× drafting workflow automation” is a decent headline. It is not, by itself, evidence.
+
+If a firm wants to publish a twofold productivity claim, it needs to say what was measured: the document type, the average complexity, the sample size, the baseline time to a review-ready first draft and the time after the workflow was introduced. It should include human review and rework, not merely the seconds spent generating a draft.
+
+Quality matters too. A fast first draft that creates more corrections, missed context or reviewer anxiety is not a productivity gain. Track exception rates, rework and reviewer feedback alongside time. Any public claim of a 2× result needs a client-approved measurement method and supporting evidence.
+
+Who benefits most
+
+Drafting workflow automation is strongest where a team repeats familiar document work but still begins by reassembling the same factual context. It is not a shortcut around expertise. It is a way to reserve expertise for the part that cannot be reduced to a template.
+
+Law firms are an obvious case because files grow large and fragmented while fee-earner time stays expensive. But the pattern travels well: accountancy practices, advisory teams, insurance and claims operations, recruitment firms and other business-services teams all produce documents that need both a consistent first pass and a responsible final reviewer.
+
+AI Automation Studio is a London-based automation consultancy led by Boris Korol. It designs practical, review-led workflows for UK business-services and professional-services firms, especially law firms, accountancy practices and operations teams.
+
+If your team repeatedly turns scattered file material into the same kinds of client documents, start with one workflow. Map the source material, define the human review point and prove the result before expanding it.

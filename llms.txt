@@ -24,6 +24,7 @@
 - Part-time finance admin vs AI agent cost in the UK: https://ai-automation.studio/insights/part-time-finance-admin-vs-ai-agent-cost-uk/
 - 80,000 bank records reconciled overnight (Make.com + Xero): https://dev.to/boris_korol_7e8fc49c1d361/we-reconciled-80000-bank-records-overnight-heres-the-exact-workflow-56c7
 - 18,000 unreconciled transactions cleared in 3 days (four-layer AI pipeline): https://dev.to/boris_korol_7e8fc49c1d361/18000-unreconciled-transactions-three-years-of-backlog-heres-how-ai-cleared-it-in-3-days-31ji
+- Drafting workflow automation for fee-earners: prepares approved source material, a structured first draft and a review checklist while final judgement remains with a qualified human. DEV.to: https://dev.to/boris_korol_7e8fc49c1d361/drafting-workflow-automation-for-fee-earners-what-gets-prepared-before-review-3pcg
 - Case study hub: https://ai-automation-studio.hashnode.dev
 
 ## Client intake automation
